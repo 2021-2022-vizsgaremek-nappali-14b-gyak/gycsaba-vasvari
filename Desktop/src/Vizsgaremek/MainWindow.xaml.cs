@@ -25,8 +25,6 @@ namespace Vizsgaremek
         public MainWindow()
         {
             InitializeComponent();
-
-            Navigate 
         }
     }
 }
