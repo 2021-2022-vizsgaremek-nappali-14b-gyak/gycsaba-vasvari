@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Vizsgaremek.Navigation;
+
 namespace Vizsgaremek.Pages
 {
     /// <summary>
@@ -23,6 +25,14 @@ namespace Vizsgaremek.Pages
         public ProgramVersion()
         {
             InitializeComponent();
+        }
+
+        // Vissza ikonra kattintva visszatér a nyitóoldalra
+        private void Image_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            WelcomePage welcomePage = new WelcomePage();
+            // Statikus osztály ezért az osztály nevét írjuk
+            Navigate.Navigation(welcomePage);
         }
     }
 }
