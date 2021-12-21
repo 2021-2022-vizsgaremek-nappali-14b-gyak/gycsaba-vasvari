@@ -1,10 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Vizsgaremek.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using Vizsgaremek.Models;
 
 namespace Vizsgaremek.Models.Tests
 {
