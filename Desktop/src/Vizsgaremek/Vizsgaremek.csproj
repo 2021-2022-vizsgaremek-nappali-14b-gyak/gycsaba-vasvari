@@ -12,6 +12,7 @@
 	  <Company>Vasvári</Company>
 	  <Product />
 	  <Description>Program verzió navigáció működik</Description>
+	  <Copyright></Copyright>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,6 +31,10 @@
     <Folder Include="Validations\" />
     <Folder Include="Resources\" />
     <Folder Include="Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Octokit" Version="0.50.0" />
   </ItemGroup>
 
   <ItemGroup>
