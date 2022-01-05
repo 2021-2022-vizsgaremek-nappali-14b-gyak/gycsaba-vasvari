@@ -22,10 +22,10 @@ namespace Vizsgaremek.Pages
     /// <summary>
     /// Interaction logic for ProgramVersion.xaml
     /// </summary>
-    public partial class ProgramVersion : UserControl
+    public partial class ProgramInfo : UserControl
     {
         ProgramVersionViewModel programVersionViewModel;
-        public ProgramVersion()
+        public ProgramInfo()
         {
             InitializeComponent();
             programVersionViewModel = new ProgramVersionViewModel();
