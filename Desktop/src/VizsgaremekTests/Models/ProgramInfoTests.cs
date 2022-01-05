@@ -23,7 +23,7 @@ namespace Vizsgaremek.Models.Tests
             Version actual = programInfo.Version;
 
             // assert
-            Assert.AreEqual(expected, actual, "Version is not 0.0.3.0");
+            Assert.AreEqual(expected, actual, "Version is not 0.1.0.1");
         }
 
         [TestMethod()]
