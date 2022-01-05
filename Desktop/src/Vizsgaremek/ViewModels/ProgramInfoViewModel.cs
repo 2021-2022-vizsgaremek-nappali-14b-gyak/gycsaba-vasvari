@@ -10,7 +10,7 @@ namespace Vizsgaremek.ViewModels
 {
     // ViewModell réteg
     // A megjeleítendő adatokat kell megadni itt
-    class ProgramVersionViewModel
+    class ProgramInfoViewModel
     {
         private ProgramInfo programInfo;
         public string Version 
@@ -41,7 +41,7 @@ namespace Vizsgaremek.ViewModels
             }
         }
 
-        public ProgramVersionViewModel()
+        public ProgramInfoViewModel()
         {
             programInfo = new ProgramInfo();
         }

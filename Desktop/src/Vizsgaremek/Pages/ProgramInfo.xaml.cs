@@ -24,11 +24,11 @@ namespace Vizsgaremek.Pages
     /// </summary>
     public partial class ProgramInfo : UserControl
     {
-        ProgramVersionViewModel programVersionViewModel;
+        ProgramInfoViewModel programVersionViewModel;
         public ProgramInfo()
         {
             InitializeComponent();
-            programVersionViewModel = new ProgramVersionViewModel();
+            programVersionViewModel = new ProgramInfoViewModel();
             this.DataContext = programVersionViewModel;
         }
 
