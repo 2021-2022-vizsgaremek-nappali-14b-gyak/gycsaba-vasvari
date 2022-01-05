@@ -56,7 +56,7 @@ namespace Vizsgaremek
                         Close();
                         break;
                     case "lviProgramVersion":
-                        ProgramVersion programVersion = new ProgramVersion();
+                        ProgramInfo programVersion = new ProgramInfo();
                         Navigate.Navigation(programVersion);
                         break;
                 }
