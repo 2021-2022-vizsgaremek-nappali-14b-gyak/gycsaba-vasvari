@@ -10,7 +10,7 @@ on:
 
 env:
   DOTNET_VERSION: '5.0.x' # The .NET SDK version to use
-  TEST_PATH: Desktop/src/src/VizsgaremekTests/VizsgaremekTests.csproj
+  TEST_PATH: Desktop/src/VizsgaremekTests/VizsgaremekTests.csproj
 
 jobs:
   build-and-test:
