@@ -55,6 +55,10 @@ namespace Vizsgaremek
                     case "lviExit":
                         Close();
                         break;
+                    case "lviDatabaseSouceSelection":
+                        DatabaseSourcePage databaseSourcePage = new DatabaseSourcePage();
+                        Navigate.Navigation(databaseSourcePage);
+                        break;
                     case "lviProgramVersion":
                         ProgramInfo programVersion = new ProgramInfo();
                         Navigate.Navigation(programVersion);
