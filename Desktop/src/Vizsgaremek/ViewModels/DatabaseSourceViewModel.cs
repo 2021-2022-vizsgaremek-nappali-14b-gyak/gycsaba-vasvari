@@ -31,6 +31,7 @@ namespace Vizsgaremek.ViewModels
                 selectedDatabaseSource = value;
                 displayedDatabaseSource = DisplayedDatabaseSource;
                 dbSource = DbSource;
+                OnDatabaseSourceChange();
             }
         }
 
@@ -68,11 +69,25 @@ namespace Vizsgaremek.ViewModels
             
         }
 
+        // Erre az eseményre iratkozhat fel egy másik osztály
+        public event EventHandler ChangeDatabaseSource;
+
         public DatabaseSourceViewModel()
         {
             repoDatabaseSouerces = new DatabaseSouerces();
             displayedDatabaseSources = new ObservableCollection<string>(repoDatabaseSouerces.GetAllDatabaseSources());
             SelectedDatabaseSource = "localhost";
         }
+
+        // Esemény kiváltása (raise)
+        protected void OnDatabaseSourceChange()
+        {
+            // Argumentumba belepakoljuk az üzenetet
+            DatabaseSourceEventArg dsea = new DatabaseSourceEventArg(DisplayedDatabaseSource);
+            // Ha van esemény akkor meghívjük a feliratkozott osztályokat;
+            if (ChangeDatabaseSource != null)
+                ChangeDatabaseSource.Invoke(this, dsea);
+        }
+
     }
 }
