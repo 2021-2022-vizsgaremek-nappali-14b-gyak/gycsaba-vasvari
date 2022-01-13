@@ -25,9 +25,9 @@ namespace Vizsgaremek.Views.Pages
     {
         DatabaseSourceViewModel databaseSourceViewModel;
 
-        public DatabaseSourcePage()
+        public DatabaseSourcePage(DatabaseSourceViewModel databaseSourceViewModel)
         {
-            databaseSourceViewModel = new DatabaseSourceViewModel();
+            this.databaseSourceViewModel = databaseSourceViewModel;
             InitializeComponent();
             this.DataContext = databaseSourceViewModel;
         }
