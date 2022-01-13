@@ -32,6 +32,7 @@ namespace Vizsgaremek
             // Különböző ablakok adatai
             mainWindowViewModel = new MainWindowViewModel();
             databaseSourceViewModel = new DatabaseSourceViewModel();
+            mainWindowViewModel.SelectedSource = databaseSourceViewModel.DisplayedDatabaseSource;
             InitializeComponent();
             // A MainWindow ablakban megjelenő adatok a MainWindowViewModel-ben vannak
             this.DataContext = mainWindowViewModel;
