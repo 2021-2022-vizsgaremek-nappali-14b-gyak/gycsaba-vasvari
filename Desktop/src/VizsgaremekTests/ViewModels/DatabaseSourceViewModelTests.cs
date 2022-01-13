@@ -29,10 +29,27 @@ namespace Vizsgaremek.ViewModels.Tests
         [TestMethod()]
         public void DatabaseSourceViewModelTestDevops()
         {
+            DatabaseSourceViewModel databaseSourceViewModel = new DatabaseSourceViewModel();
+            // Felhasználó "rákkattintott a "localhost" szóra
+            databaseSourceViewModel.SelectedDatabaseSource = "devops";
+            DbSource expectedDbSource = DbSource.DEVOPS;
+
+            DbSource actualDbSource = databaseSourceViewModel.DbSource;
+
+            Assert.AreEqual(expectedDbSource, actualDbSource, "A kiválasztott adatbázis a 'devops', de nem váltott át DbSource.DEVOPS-ra");
         }
 
         [TestMethod()]
         public void DatabaseSourceViewModelTestNone()
         {
+            DatabaseSourceViewModel databaseSourceViewModel = new DatabaseSourceViewModel();
+            // Felhasználó "rákkattintott a "localhost" szóra
+            databaseSourceViewModel.SelectedDatabaseSource = "";
+            DbSource expectedDbSource = DbSource.NONE;
+
+            DbSource actualDbSource = databaseSourceViewModel.DbSource;
+
+            Assert.AreEqual(expectedDbSource, actualDbSource, "A kiválasztott adatbázis a '', de nem váltott át DbSource.NONE-ra");
         }
     }
+}
