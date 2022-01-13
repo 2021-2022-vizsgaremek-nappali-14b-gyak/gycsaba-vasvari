@@ -11,14 +11,14 @@ namespace Vizsgaremek.ViewModels
 {
     class DatabaseSourceViewModel
     {
-        private ObservableCollection<string> displayedDatabaseSource;
+        private ObservableCollection<string> displayedDatabaseSources;
         private string selectedDatabaseSource;
+
         DatabaseSouerces repoDatabaseSouerces;
 
-
-        public ObservableCollection<string> DisplayedDatabaseSource 
+        public ObservableCollection<string> DisplayedDatabaseSources 
         { 
-            get => displayedDatabaseSource; 
+            get => displayedDatabaseSources; 
         }
         public string SelectedDatabaseSource 
         { 
@@ -29,8 +29,7 @@ namespace Vizsgaremek.ViewModels
         public DatabaseSourceViewModel()
         {
             repoDatabaseSouerces = new DatabaseSouerces();
-            displayedDatabaseSource = new ObservableCollection<string>(repoDatabaseSouerces.GetAllDatabaseSources());
-
+            displayedDatabaseSources = new ObservableCollection<string>(repoDatabaseSouerces.GetAllDatabaseSources());
         }
     }
 }
