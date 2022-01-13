@@ -4,16 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Vizsgaremek.ViewModels.BaseClass;
+
 namespace Vizsgaremek.ViewModels
 {
-    class MainWindowViewModel
+    class MainWindowViewModel : ViewModelBaseClass
     {
         private string selectedSource;
 
         public string SelectedSource 
         { 
-            get => selectedSource; 
-            set => selectedSource = value; 
-        }
+            get => selectedSource;
+            set
+            {
+                selectedSource = value;
+                OnPropertyChanged("SelectedSource");
+            }
+        }            
     }
 }
