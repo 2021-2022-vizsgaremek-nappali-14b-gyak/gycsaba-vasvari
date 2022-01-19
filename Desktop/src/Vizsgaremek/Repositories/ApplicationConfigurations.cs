@@ -6,17 +6,30 @@ using System.Threading.Tasks;
 
 using System.Configuration;
 
+using System.Collections.Specialized;
+
 namespace Vizsgaremek.Repositories
 {
     class ApplicationConfigurations
     {
         private string appName;
+        private Dictionary<string, string> devopsVersions;
+        private Dictionary<string, string> languages;
 
         public string AppName { get => appName; set => appName = value; }
 
         public ApplicationConfigurations()
         {
-            appName = ConfigurationManager.AppSettings.Get("appName");
+            var name = ConfigurationManager.AppSettings.Get("name");
+
+            //var devopsVersionsConfig = ConfigurationManager.AppSettings.Get("devopsVersions");            
+            //var languagesConfig = ConfigurationManager.AppSettings.Get("language");
+
+            NameValueCollection devopsVersionsConfigSection = ConfigurationManager.GetSection("devopsVersions") as NameValueCollection;
+            NameValueCollection lanuagesSettingsConfigSection = ConfigurationManager.GetSection("languages") as NameValueCollection;
+
+            devopsVersions = new Dictionary<string, string>();
+            devopsVersions = devopsVersionsConfigSection.AllKeys.ToDictionary(k => k, k => devopsVersionsConfigSection[k]);
         }
     }
 }
