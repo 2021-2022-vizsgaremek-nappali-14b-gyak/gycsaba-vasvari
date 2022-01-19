@@ -17,19 +17,21 @@ namespace Vizsgaremek.Repositories
         private Dictionary<string, string> languages;
 
         public string AppName { get => appName; set => appName = value; }
+        public Dictionary<string, string> DevopsVersions { get => devopsVersions; set => devopsVersions = value; }
+        public Dictionary<string, string> Languages { get => languages; set => languages = value; }
 
         public ApplicationConfigurations()
         {
             var name = ConfigurationManager.AppSettings.Get("name");
 
-            //var devopsVersionsConfig = ConfigurationManager.AppSettings.Get("devopsVersions");            
-            //var languagesConfig = ConfigurationManager.AppSettings.Get("language");
-
             NameValueCollection devopsVersionsConfigSection = ConfigurationManager.GetSection("devopsVersions") as NameValueCollection;
             NameValueCollection lanuagesSettingsConfigSection = ConfigurationManager.GetSection("languages") as NameValueCollection;
 
-            devopsVersions = new Dictionary<string, string>();
-            devopsVersions = devopsVersionsConfigSection.AllKeys.ToDictionary(k => k, k => devopsVersionsConfigSection[k]);
+            DevopsVersions = new Dictionary<string, string>();
+            DevopsVersions = devopsVersionsConfigSection.AllKeys.ToDictionary(k => k, k => devopsVersionsConfigSection[k]);
+
+            Languages = new Dictionary<string, string>();
+            Languages = lanuagesSettingsConfigSection.AllKeys.ToDictionary(k => k, k => lanuagesSettingsConfigSection[k]);
         }
     }
 }
