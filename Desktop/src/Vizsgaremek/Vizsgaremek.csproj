@@ -32,7 +32,6 @@
   <ItemGroup>
     <Folder Include="Controls\" />
     <Folder Include="Validations\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
 
   <ItemGroup>
