@@ -10,13 +10,13 @@ namespace Vizsgaremek.Repositories
 {
     class ApplicationConfigurations
     {
-        private string name;
+        private string appName;
 
-        public string Name { get => name; set => name = value; }
+        public string AppName { get => appName; set => appName = value; }
 
         public ApplicationConfigurations()
         {
-            var name = ConfigurationManager.AppSettings.Get("name");
+            appName = ConfigurationManager.AppSettings.Get("appName");
         }
     }
 }
