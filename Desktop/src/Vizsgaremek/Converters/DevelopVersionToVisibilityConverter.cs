@@ -15,11 +15,11 @@ namespace Vizsgaremek.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            bool developVersion = Properties.Settings.Default.developVersion;
-
             // Save
             // Properties.Settings.Default.keyName = value;
             // Properties.Settings.Default.Save();
+
+            bool developVersion = Properties.Settings.Default.developVersion;
 
             if (developVersion == true)
                 return Visibility.Visible;

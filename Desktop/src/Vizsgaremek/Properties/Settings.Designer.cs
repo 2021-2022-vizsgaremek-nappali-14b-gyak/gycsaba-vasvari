@@ -31,5 +31,29 @@ namespace Vizsgaremek.Properties {
                 return ((bool)(this["developVersion"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        public string storedDataSource {
+            get {
+                return ((string)(this["storedDataSource"]));
+            }
+            set {
+                this["storedDataSource"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("hu-HU")]
+        public string storedLanguage {
+            get {
+                return ((string)(this["storedLanguage"]));
+            }
+            set {
+                this["storedLanguage"] = value;
+            }
+        }
     }
 }
