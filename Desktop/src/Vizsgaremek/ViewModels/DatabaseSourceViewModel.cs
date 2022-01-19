@@ -29,6 +29,11 @@ namespace Vizsgaremek.ViewModels
             set
             {
                 selectedDatabaseSource = value;
+                Properties.Settings.Default.storedDataSource = selectedDatabaseSource;
+                Properties.Settings.Default.Save();
+
+                string proba = Properties.Settings.Default.storedDataSource;
+
                 displayedDatabaseSource = DisplayedDatabaseSource;
                 dbSource = DbSource;
                 OnDatabaseSourceChange();
@@ -76,7 +81,7 @@ namespace Vizsgaremek.ViewModels
         {
             repoDatabaseSouerces = new DatabaseSouerces();
             displayedDatabaseSources = new ObservableCollection<string>(repoDatabaseSouerces.GetAllDatabaseSources());
-            SelectedDatabaseSource = "localhost";
+            SelectedDatabaseSource = Properties.Settings.Default.storedDataSource;
         }
 
         // Esemény kiváltása (raise)
