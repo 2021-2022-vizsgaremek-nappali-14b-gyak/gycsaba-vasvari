@@ -35,18 +35,18 @@ namespace Vizsgaremek.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("test")]
-        public string storedDevelopVersion {
+        public string storedDataSource {
             get {
-                return ((string)(this["storedDevelopVersion"]));
+                return ((string)(this["storedDataSource"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("hu-HU")]
-        public string storedSelectedLanguage {
+        public string storedLanguage {
             get {
-                return ((string)(this["storedSelectedLanguage"]));
+                return ((string)(this["storedLanguage"]));
             }
         }
     }
