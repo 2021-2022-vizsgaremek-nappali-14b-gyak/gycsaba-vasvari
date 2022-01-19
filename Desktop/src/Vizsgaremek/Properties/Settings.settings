@@ -5,5 +5,11 @@
     <Setting Name="developVersion" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="storedDevelopVersion" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">test</Value>
+    </Setting>
+    <Setting Name="storedSelectedLanguage" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">hu-HU</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
