@@ -17,7 +17,7 @@ namespace Vizsgaremek.ViewModels
         private string displayedDatabaseSource;
         private DbSource dbSource;
 
-        DatabaseSouerces repoDatabaseSouerces;
+        private DatabaseSouerces repoDatabaseSouerces;
 
         public ObservableCollection<string> DisplayedDatabaseSources 
         { 
