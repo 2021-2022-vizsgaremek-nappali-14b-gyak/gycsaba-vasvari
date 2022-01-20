@@ -46,6 +46,18 @@ namespace Vizsgaremek.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("test")]
+        public string storedDataSourceToolTip {
+            get {
+                return ((string)(this["storedDataSourceToolTip"]));
+            }
+            set {
+                this["storedDataSourceToolTip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("hu-HU")]
         public string storedLanguage {
             get {
@@ -53,6 +65,18 @@ namespace Vizsgaremek.Properties {
             }
             set {
                 this["storedLanguage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("magyar")]
+        public string storedLanguageToolTip {
+            get {
+                return ((string)(this["storedLanguageToolTip"]));
+            }
+            set {
+                this["storedLanguageToolTip"] = value;
             }
         }
     }

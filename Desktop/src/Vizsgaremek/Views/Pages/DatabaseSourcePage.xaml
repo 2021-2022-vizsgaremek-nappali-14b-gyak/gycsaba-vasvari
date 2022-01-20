@@ -21,13 +21,20 @@
                         Width="200" 
                         ItemsSource="{Binding Path=DisplayedDatabaseSources}" 
                         SelectedItem="{Binding Path=SelectedDatabaseSource}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock 
+                                Text="{Binding Path=Name}" 
+                                ToolTipService.ToolTip="{Binding Path=ToolTip}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
                 </ListBox>
                 <StackPanel Orientation="Horizontal">
                     <Label>A választott adatbázis:</Label>
                     <TextBlock FontWeight="Bold" 
                                Margin="2 5 2 2"
                                x:Name="txtSelectedDatabaseSource"
-                               Text="{Binding Path=SelectedDatabaseSource}">
+                               Text="{Binding Path=SelectedDatabaseSource.Name}">
                     </TextBlock>
                 </StackPanel>
             </StackPanel>

@@ -12,24 +12,27 @@ namespace Vizsgaremek.ViewModels
 {
     public class DatabaseSourceViewModel
     {
-        private ObservableCollection<string> displayedDatabaseSources;
-        private string selectedDatabaseSource;
-        private string displayedDatabaseSource;
+        private ObservableCollection<DatabaseSource> displayedDatabaseSources;
+        private DatabaseSource selectedDatabaseSource;
+        private DatabaseSource displayedDatabaseSource;
         private DbSource dbSource;
 
-        private DatabaseSouerces repoDatabaseSouerces;
+        private DatabaseSources repoDatabaseSouerces;
 
-        public ObservableCollection<string> DisplayedDatabaseSources 
+        public ObservableCollection<DatabaseSource> DisplayedDatabaseSources 
         { 
             get => displayedDatabaseSources; 
         }
-        public string SelectedDatabaseSource 
+        public DatabaseSource SelectedDatabaseSource 
         { 
             get => selectedDatabaseSource;
             set
             {
                 selectedDatabaseSource = value;
-                Properties.Settings.Default.storedDataSource = selectedDatabaseSource;
+                displayedDatabaseSource = value;
+
+                Properties.Settings.Default.storedDataSource = selectedDatabaseSource.Name;
+                Properties.Settings.Default.storedDataSourceToolTip = selectedDatabaseSource.ToolTip;
                 Properties.Settings.Default.Save();
 
                 string proba = Properties.Settings.Default.storedDataSource;
@@ -44,32 +47,15 @@ namespace Vizsgaremek.ViewModels
         {
             get
             {
-                // TDD fejlesztés
-                // return DbSource.NONE;
-                if (selectedDatabaseSource == "localhost")
-                    return DbSource.LOCALHOST;
-                else if (selectedDatabaseSource == "devops")
-                    return DbSource.DEVOPS;
-                return DbSource.NONE;
+                return selectedDatabaseSource.DbSource;
             }
         }
 
-        public string DisplayedDatabaseSource 
+        public DatabaseSource DisplayedDatabaseSource 
         {
             get
             {
-                switch(dbSource)
-                {
-                    case DbSource.DEVOPS:
-                        return "devops adatforrás.";
-                        break;
-                    case DbSource.LOCALHOST:
-                        return "localhost adatforrás.";
-                    case DbSource.NONE:
-                        return "beépített teszt adatok.";
-                    default:
-                        return "";
-                }
+                return displayedDatabaseSource;
             }
             
         }
@@ -79,16 +65,16 @@ namespace Vizsgaremek.ViewModels
 
         public DatabaseSourceViewModel()
         {
-            repoDatabaseSouerces = new DatabaseSouerces();
-            displayedDatabaseSources = new ObservableCollection<string>(repoDatabaseSouerces.GetAllDatabaseSources());
-            SelectedDatabaseSource = Properties.Settings.Default.storedDataSource;
+            repoDatabaseSouerces = new DatabaseSources();
+            displayedDatabaseSources = new ObservableCollection<DatabaseSource>(repoDatabaseSouerces.GetAllDatabaseSources());
+            SelectedDatabaseSource = repoDatabaseSouerces.StoredSelectedSource;
         }
 
         // Esemény kiváltása (raise)
         protected void OnDatabaseSourceChange()
         {
             // Argumentumba belepakoljuk az üzenetet
-            DatabaseSourceEventArg dsea = new DatabaseSourceEventArg(DisplayedDatabaseSource);
+            DatabaseSourceEventArg dsea = new DatabaseSourceEventArg(DisplayedDatabaseSource.Name);
             // Ha van esemény akkor meghívjük a feliratkozott osztályokat;
             if (ChangeDatabaseSource != null)
                 ChangeDatabaseSource.Invoke(this, dsea);

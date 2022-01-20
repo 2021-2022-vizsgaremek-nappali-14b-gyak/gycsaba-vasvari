@@ -29,6 +29,9 @@ namespace Vizsgaremek.Models
             }
         }
 
+        public DatabaseSource()
+        { 
+        }
 
         public DatabaseSource(string name, string tooltip)
         {

@@ -8,8 +8,14 @@
     <Setting Name="storedDataSource" Type="System.String" Scope="User">
       <Value Profile="(Default)">test</Value>
     </Setting>
+    <Setting Name="storedDataSourceToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">test</Value>
+    </Setting>
     <Setting Name="storedLanguage" Type="System.String" Scope="User">
       <Value Profile="(Default)">hu-HU</Value>
+    </Setting>
+    <Setting Name="storedLanguageToolTip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">magyar</Value>
     </Setting>
   </Settings>
 </SettingsFile>
