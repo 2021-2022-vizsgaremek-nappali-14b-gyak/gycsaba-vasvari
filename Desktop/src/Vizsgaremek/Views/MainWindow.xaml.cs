@@ -29,6 +29,7 @@ namespace Vizsgaremek
     {
         private MainWindowViewModel mainWindowViewModel;
         private DatabaseSourceViewModel databaseSourceViewModel;
+        private LanguageSelectionViewModel languageSelectionViewModel;
 
         private ResourceDictionary dict;
 
@@ -37,11 +38,13 @@ namespace Vizsgaremek
             // Különböző ablakok adatai
             mainWindowViewModel = new MainWindowViewModel();
             databaseSourceViewModel = new DatabaseSourceViewModel();
-            mainWindowViewModel.SelectedSource = databaseSourceViewModel.DisplayedDatabaseSource.Name;
-
+            languageSelectionViewModel = new LanguageSelectionViewModel();
+            mainWindowViewModel.SelectedSource = databaseSourceViewModel.SelectedDatabaseSource.Name;
+            mainWindowViewModel.SelectedLanguage = languageSelectionViewModel.SelectedLanguage.Name;
 
             // Feliratkozunk az eseményre. Ha változik az adat az adott osztályba tudni fogunk róla!
             databaseSourceViewModel.ChangeDatabaseSource += DatabaseSourceViewModel_ChangeDatabaseSource;
+            languageSelectionViewModel.ChangeLanguage += LanguageSelectionViewModel_ChangeLanguage;
 
             dict = new ResourceDictionary();
             CultureInfo.CurrentCulture = new CultureInfo("en-En");
@@ -65,6 +68,12 @@ namespace Vizsgaremek
             mainWindowViewModel.SelectedSource = dsea.DatabaseSource;
         }
 
+        private void LanguageSelectionViewModel_ChangeLanguage(object sender, EventArgs e)
+        {
+            LanguageSelectionEventArg lsea = (LanguageSelectionEventArg)e;
+            mainWindowViewModel.SelectedLanguage = lsea.SelectedLanguage;
+        }
+
         /// <summary>
         /// ListView elemen bal egér gomb fel lett engedve
         /// </summary>
@@ -83,6 +92,10 @@ namespace Vizsgaremek
                 {
                     case "lviExit":
                         Close();
+                        break;
+                    case "lviLanguageSelection":
+                        LanguageSelectionPage languageSelectionPage = new LanguageSelectionPage(languageSelectionViewModel);
+                        Navigate.Navigation(languageSelectionPage);
                         break;
                     case "lviDatabaseSouceSelection":
                         DatabaseSourcePage databaseSourcePage = new DatabaseSourcePage(databaseSourceViewModel);
