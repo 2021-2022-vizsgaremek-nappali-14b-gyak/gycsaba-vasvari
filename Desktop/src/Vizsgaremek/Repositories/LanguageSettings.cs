@@ -8,7 +8,7 @@ using Vizsgaremek.Models;
 
 namespace Vizsgaremek.Repositories
 {
-    class LanguageSettings
+    public class LanguageSettings
     {
         private List<LanguageSetting> languageSettingsItems;
         private LanguageSetting storedSelectedLanguage;
