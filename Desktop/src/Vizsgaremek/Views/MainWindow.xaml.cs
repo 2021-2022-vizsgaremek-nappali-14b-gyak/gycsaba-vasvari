@@ -41,16 +41,15 @@ namespace Vizsgaremek
             languageSelectionViewModel = new LanguageSelectionViewModel();
             mainWindowViewModel.SelectedSource = databaseSourceViewModel.SelectedDatabaseSource.Name;
             mainWindowViewModel.SelectedLanguage = languageSelectionViewModel.SelectedLanguage.Name;
-            CultureInfo.CurrentCulture = new CultureInfo(languageSelectionViewModel.SelectedLanguage.Name);
+
+            dict = new ResourceDictionary();
+            CultureInfo.CurrentCulture = new CultureInfo(languageSelectionViewModel.SelectedLanguage.ToolTip);
             SetLanguageDictionary();
 
             // Feliratkozunk az eseményre. Ha változik az adat az adott osztályba tudni fogunk róla!
             databaseSourceViewModel.ChangeDatabaseSource += DatabaseSourceViewModel_ChangeDatabaseSource;
             languageSelectionViewModel.ChangeLanguage += LanguageSelectionViewModel_ChangeLanguage;
 
-            dict = new ResourceDictionary();
-            CultureInfo.CurrentCulture = new CultureInfo("en-En");
-            SetLanguageDictionary();
 
             InitializeComponent();
             // A MainWindow ablakban megjelenő adatok a MainWindowViewModel-ben vannak
