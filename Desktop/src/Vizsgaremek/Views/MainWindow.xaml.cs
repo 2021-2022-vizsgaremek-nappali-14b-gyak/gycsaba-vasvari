@@ -41,7 +41,7 @@ namespace Vizsgaremek
             languageSelectionViewModel = new LanguageSelectionViewModel();
             mainWindowViewModel.SelectedSource = databaseSourceViewModel.SelectedDatabaseSource.Name;
             mainWindowViewModel.SelectedLanguage = languageSelectionViewModel.SelectedLanguage.Name;
-            CultureInfo.CurrentCulture = new CultureInfo(languageSelectionViewModel.SelectedLanguage.ToolTip);
+            CultureInfo.CurrentCulture = new CultureInfo(languageSelectionViewModel.SelectedLanguage.Name);
             SetLanguageDictionary();
 
             // Feliratkozunk az eseményre. Ha változik az adat az adott osztályba tudni fogunk róla!
