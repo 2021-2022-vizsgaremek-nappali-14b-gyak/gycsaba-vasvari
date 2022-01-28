@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using Vizsgaremek.Views.Navigation;
+using Vizsgaremek.Views.Navigations;
 using Vizsgaremek.ViewModels;
 
 namespace Vizsgaremek.Views.Pages
@@ -35,7 +35,7 @@ namespace Vizsgaremek.Views.Pages
         private void Image_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             WelcomePage welcomePage = new WelcomePage();
-            Navigate.Navigation(welcomePage);
+            Navigation.Navigete(welcomePage);
         }
     }
 }

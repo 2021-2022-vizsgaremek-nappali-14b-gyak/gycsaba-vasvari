@@ -14,25 +14,20 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using Vizsgaremek.Views.Navigations;
-using Vizsgaremek.ViewModels;
 
 namespace Vizsgaremek.Views.Pages
 {
     /// <summary>
-    /// Interaction logic for DatabaseSourcePage.xaml
+    /// Interaction logic for TeacherPage.xaml
     /// </summary>
-    public partial class DatabaseSourcePage : UserControl
+    public partial class TeacherPage : UserControl
     {
-        DatabaseSourceViewModel databaseSourceViewModel;
-
-        public DatabaseSourcePage(DatabaseSourceViewModel databaseSourceViewModel)
+        public TeacherPage()
         {
-            this.databaseSourceViewModel = databaseSourceViewModel;
             InitializeComponent();
-            this.DataContext = databaseSourceViewModel;
         }
 
-        private void Image_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void UpdatePageBackImage_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             WelcomePage welcomePage = new WelcomePage();
             Navigation.Navigete(welcomePage);

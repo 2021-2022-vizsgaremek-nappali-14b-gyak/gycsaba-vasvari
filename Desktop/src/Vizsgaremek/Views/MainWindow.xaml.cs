@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using Vizsgaremek.Views.Navigation;
+using Vizsgaremek.Views.Navigations;
 using Vizsgaremek.Views.Pages;
 using Vizsgaremek.ViewModels;
 
@@ -56,11 +56,11 @@ namespace Vizsgaremek
             this.DataContext = mainWindowViewModel;
             // Statikus osztály a Navigate
             // Eltárolja a nyitó ablakt, hogy azon tudjuk módosítani a "page"-ket
-            Navigate.mainWindow = this;
+            Navigation.mainWindow = this;
             // Létrehozzuk a nyitó "UsuerControl" (WelcomPage)
             WelcomePage welcomePage = new WelcomePage();
             // Megjelnítjük a WelcomePage-t
-            Navigate.Navigation(welcomePage);
+            Navigation.Navigete(welcomePage);
         }
 
         private void DatabaseSourceViewModel_ChangeDatabaseSource(object sender, EventArgs e)
@@ -98,15 +98,15 @@ namespace Vizsgaremek
                         break;
                     case "lviLanguageSelection":
                         LanguageSelectionPage languageSelectionPage = new LanguageSelectionPage(languageSelectionViewModel);
-                        Navigate.Navigation(languageSelectionPage);
+                        Navigation.Navigete(languageSelectionPage);
                         break;
                     case "lviDatabaseSouceSelection":
                         DatabaseSourcePage databaseSourcePage = new DatabaseSourcePage(databaseSourceViewModel);
-                        Navigate.Navigation(databaseSourcePage);
+                        Navigation.Navigete(databaseSourcePage);
                         break;
                     case "lviProgramVersion":
                         ProgramInfo programVersion = new ProgramInfo();
-                        Navigate.Navigation(programVersion);
+                        Navigation.Navigete(programVersion);
                         break;
                 }                
             }

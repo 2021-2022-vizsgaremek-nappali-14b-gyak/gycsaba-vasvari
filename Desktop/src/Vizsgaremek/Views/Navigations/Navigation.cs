@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 using System.Windows.Controls;
 
-namespace Vizsgaremek.Views.Navigation
+namespace Vizsgaremek.Views.Navigations
 {
-    public static class Navigate
+    public static class Navigation
     {
         // elároljuk a MainWindow, hogy tudjuk váltani ablakot (pages)
         public static MainWindow mainWindow;
@@ -17,7 +17,7 @@ namespace Vizsgaremek.Views.Navigation
         /// Egy új ablakra vált
         /// </summary>
         /// <param name="userControl">Erre az ablakra váltun</param>
-        public static void Navigation(UserControl userControl)
+        public static void Navigete(UserControl userControl)
         {
             mainWindow.PageContent.Children.Clear();
             mainWindow.PageContent.Children.Add(userControl);

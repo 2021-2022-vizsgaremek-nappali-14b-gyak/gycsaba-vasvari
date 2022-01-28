@@ -47,3 +47,4 @@ namespace Vizsgaremek.Models
         public EmploymentValue Emploeyment { get => emploeyment; set => emploeyment = value; }
         public string EmploeymentName { get => emploeymentName; set => emploeymentName = value; }
     }
+}

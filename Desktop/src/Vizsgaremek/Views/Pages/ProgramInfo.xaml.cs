@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using Vizsgaremek.Views.Navigation;
+using Vizsgaremek.Views.Navigations;
 
 using Vizsgaremek.ViewModels;
 
@@ -37,7 +37,7 @@ namespace Vizsgaremek.Views.Pages
         {
             WelcomePage welcomePage = new WelcomePage();
             // Statikus osztály ezért az osztály nevét írjuk
-            Navigate.Navigation(welcomePage);
+            Navigation.Navigete(welcomePage);
         }
 
         private void btAuthors_Click(object sender, RoutedEventArgs e)
