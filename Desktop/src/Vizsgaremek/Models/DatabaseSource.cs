@@ -10,13 +10,33 @@ namespace Vizsgaremek.Models
 
     public class DatabaseSource
     {
-        private DbSource dbSource;
+        string name;
+        string toolTip;
+        DbSource dbSource;
 
-        public DbSource DbSource { get => dbSource; set => dbSource = value; }
+        public string Name { get => name; set => name = value; }
+        public string ToolTip { get => toolTip; set => toolTip = value; }
+
+        public DbSource DbSource
+        {
+            get
+            {
+                if (name == "localhost")
+                    return DbSource.LOCALHOST;
+                else if (name == "devops")
+                    return DbSource.DEVOPS;
+                return DbSource.NONE;
+            }
+        }
 
         public DatabaseSource()
+        { 
+        }
+
+        public DatabaseSource(string name, string tooltip)
         {
-            this.DbSource = DbSource.NONE;
+            this.name = name;
+            this.toolTip = tooltip;
         }
     }
 }

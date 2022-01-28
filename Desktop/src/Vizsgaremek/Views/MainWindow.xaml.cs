@@ -37,7 +37,7 @@ namespace Vizsgaremek
             // Különböző ablakok adatai
             mainWindowViewModel = new MainWindowViewModel();
             databaseSourceViewModel = new DatabaseSourceViewModel();
-            mainWindowViewModel.SelectedSource = databaseSourceViewModel.DisplayedDatabaseSource;
+            mainWindowViewModel.SelectedSource = databaseSourceViewModel.DisplayedDatabaseSource.Name;
 
 
             // Feliratkozunk az eseményre. Ha változik az adat az adott osztályba tudni fogunk róla!
