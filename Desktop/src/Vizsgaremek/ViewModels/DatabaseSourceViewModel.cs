@@ -14,7 +14,6 @@ namespace Vizsgaremek.ViewModels
     {
         private ObservableCollection<DatabaseSource> displayedDatabaseSources;
         private DatabaseSource selectedDatabaseSource;
-        private DatabaseSource displayedDatabaseSource;
         private DbSource dbSource;
 
         private DatabaseSources repoDatabaseSouerces;
@@ -29,15 +28,11 @@ namespace Vizsgaremek.ViewModels
             set
             {
                 selectedDatabaseSource = value;
-                displayedDatabaseSource = value;
 
                 Properties.Settings.Default.storedDataSource = selectedDatabaseSource.Name;
                 Properties.Settings.Default.storedDataSourceToolTip = selectedDatabaseSource.ToolTip;
                 Properties.Settings.Default.Save();
 
-                string proba = Properties.Settings.Default.storedDataSource;
-
-                displayedDatabaseSource = DisplayedDatabaseSource;
                 dbSource = DbSource;
                 OnDatabaseSourceChange();
             }
@@ -49,15 +44,6 @@ namespace Vizsgaremek.ViewModels
             {
                 return selectedDatabaseSource.DbSource;
             }
-        }
-
-        public DatabaseSource DisplayedDatabaseSource 
-        {
-            get
-            {
-                return displayedDatabaseSource;
-            }
-            
         }
 
         // Erre az eseményre iratkozhat fel egy másik osztály
@@ -74,7 +60,7 @@ namespace Vizsgaremek.ViewModels
         protected void OnDatabaseSourceChange()
         {
             // Argumentumba belepakoljuk az üzenetet
-            DatabaseSourceEventArg dsea = new DatabaseSourceEventArg(DisplayedDatabaseSource.Name);
+            DatabaseSourceEventArg dsea = new DatabaseSourceEventArg(SelectedDatabaseSource.Name);
             // Ha van esemény akkor meghívjük a feliratkozott osztályokat;
             if (ChangeDatabaseSource != null)
                 ChangeDatabaseSource.Invoke(this, dsea);

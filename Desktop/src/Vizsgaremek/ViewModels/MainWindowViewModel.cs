@@ -12,7 +12,7 @@ namespace Vizsgaremek.ViewModels
     {
         private string selectedSource;
 
-        public string SelectedSource 
+        public string SelectedSource
         {
             get
             {
@@ -25,5 +25,24 @@ namespace Vizsgaremek.ViewModels
                 OnPropertyChanged("SelectedSource");
             }
         }
+
+        private string selectedLanguage;
+        
+        public string SelectedLanguage
+        {
+            get
+            {
+                return selectedLanguage;
+            }
+
+            set
+            {
+                selectedLanguage = value;
+                OnPropertyChanged();
+            }
+        }
+
+        
+
     }
 }

@@ -21,6 +21,8 @@
                 <StackPanel Orientation="Horizontal">
                     <Label VerticalAlignment="Center">Kiválasztott adatforrás:</Label>
                     <TextBlock x:Name="SelectedSource" Text="{Binding Path=SelectedSource}" VerticalAlignment="Center"></TextBlock>
+                    <Label Margin="2 0 0 2"  VerticalAlignment="Center">Kiválasztott nyelv:</Label>
+                    <TextBlock x:Name="SelectedLanguage" Text="{Binding Path=SelectedLanguage}" VerticalAlignment="Center"></TextBlock>
                 </StackPanel>
             </Grid>
         </Grid>
@@ -33,6 +35,15 @@
                         <TextBlock>
                             Menü 1.
                         </TextBlock>
+                    </ListViewItem>
+                    <ListViewItem Visibility="{Binding Converter={StaticResource DevelopVersionToVisibilityConverter}}"
+                        Height="30" x:Name="lviLanguageSelection" FontFamily="Century Gothic" FontSize="13" Foreground="White">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Height="20" Source="/Icons/exit.png" Margin="5 2 5 2"/>
+                            <TextBlock Margin="2 2 2 2">
+                                Nyelv választás
+                            </TextBlock>
+                        </StackPanel>
                     </ListViewItem>
                     <ListViewItem Visibility="{Binding Converter={StaticResource DevelopVersionToVisibilityConverter}}"
                         Height="30" x:Name="lviDatabaseSouceSelection" FontFamily="Century Gothic" FontSize="13" Foreground="White">

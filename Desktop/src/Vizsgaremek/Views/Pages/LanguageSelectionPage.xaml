@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="Vizsgaremek.Views.Pages.LanguageSelectionPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vizsgaremek.Views.Pages"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Image Source="/Icons/back_icon.png" Height="48" PreviewMouseLeftButtonUp="Image_PreviewMouseLeftButtonUp" />
+        </StackPanel>
+        <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20 5 20 5" Width="600">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock x:Name="WelcomeText" FontSize="24" Text="Nyelv választás"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Margin="200 5 200 5">
+            <StackPanel>
+                <Label>Válasszon nyelvet:</Label>
+                <ListBox x:Name="listDatabaseSources"  
+                        Height="80" 
+                        Width="200" 
+                        ItemsSource="{Binding Path=DisplayedLagugages}" 
+                        SelectedItem="{Binding Path=SelectedLanguage}"
+                        IsSynchronizedWithCurrentItem="True">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock
+                                Text="{Binding Path=Name}" 
+                                ToolTipService.ToolTip="{Binding Path=ToolTip}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>A választott nyelv:</Label>
+                <TextBlock FontWeight="Bold" 
+                               Margin="2 5 2 2"
+                               x:Name="txtSelectedDatabaseSource"
+                               Text="{Binding Path=SelectedLanguage.Name}">
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
