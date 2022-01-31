@@ -45,6 +45,32 @@ namespace Vizsgaremek.Models
         public string Password { get => password; set => password = value; }
         public bool Meal { get => meal; set => meal = value; }
         public EmploymentValue Emploeyment { get => emploeyment; set => emploeyment = value; }
-        public string EmploeymentName { get => emploeymentName; set => emploeymentName = value; }
+        public string EmploeymentName
+        {
+            get
+            {
+                switch (emploeyment)
+                {
+                    case EmploymentValue.LECTURER:
+                        return "óraadó";
+                    case EmploymentValue.INDENTUREDLABOURER:
+                        return "szerződéses alkalmazott";
+                    case EmploymentValue.DONEONCOMMISSION:
+                        return "állandó megbízásos rendelkező";
+                }
+                return string.Empty;
+            }
+
+            set
+            {
+                emploeymentName = value;
+                if (emploeymentName == "óraadó")
+                    emploeyment = EmploymentValue.LECTURER;
+                else if (emploeymentName == "szerződéses alkalmazott")
+                    emploeyment = EmploymentValue.INDENTUREDLABOURER;
+                else
+                    emploeyment = EmploymentValue.DONEONCOMMISSION;
+            }
+        }
     }
 }

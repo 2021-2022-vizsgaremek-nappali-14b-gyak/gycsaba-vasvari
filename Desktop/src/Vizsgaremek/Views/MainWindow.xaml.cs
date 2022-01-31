@@ -96,6 +96,10 @@ namespace Vizsgaremek
                     case "lviExit":
                         Close();
                         break;
+                    case "lviTeacher":
+                        TeacherPage teacherPage = new TeacherPage();
+                        Navigation.Navigete(teacherPage);
+                        break;
                     case "lviLanguageSelection":
                         LanguageSelectionPage languageSelectionPage = new LanguageSelectionPage(languageSelectionViewModel);
                         Navigation.Navigete(languageSelectionPage);

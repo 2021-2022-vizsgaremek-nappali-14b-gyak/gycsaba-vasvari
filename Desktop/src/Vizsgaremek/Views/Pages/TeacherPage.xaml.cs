@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using Vizsgaremek.Views.Navigations;
+using Vizsgaremek.ViewModels;
 
 namespace Vizsgaremek.Views.Pages
 {
@@ -24,7 +25,9 @@ namespace Vizsgaremek.Views.Pages
     {
         public TeacherPage()
         {
+            TeacherPageViewModel teacherPageViewModel = new TeacherPageViewModel();
             InitializeComponent();
+            this.DataContext = teacherPageViewModel;
         }
 
         private void UpdatePageBackImage_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
