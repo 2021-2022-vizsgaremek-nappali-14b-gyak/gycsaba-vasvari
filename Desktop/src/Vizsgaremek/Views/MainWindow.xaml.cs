@@ -20,6 +20,8 @@ using Vizsgaremek.ViewModels;
 using System.Globalization;
 using System.Threading;
 
+using Vizsgaremek.Stores;
+
 namespace Vizsgaremek
 {
     /// <summary>
@@ -30,16 +32,24 @@ namespace Vizsgaremek
         private MainWindowViewModel mainWindowViewModel;
         private DatabaseSourceViewModel databaseSourceViewModel;
         private LanguageSelectionViewModel languageSelectionViewModel;
+        private TeacherPageViewModel teacherPageViewModel;
+
+        private ApplicationStore applicationStore;
 
         private ResourceDictionary dict;
 
         public MainWindow()
         {
+            applicationStore = new ApplicationStore();
+
             // Különböző ablakok adatai
             mainWindowViewModel = new MainWindowViewModel();
             databaseSourceViewModel = new DatabaseSourceViewModel();
             languageSelectionViewModel = new LanguageSelectionViewModel();
+            teacherPageViewModel = new TeacherPageViewModel(applicationStore);
             mainWindowViewModel.SelectedSource = databaseSourceViewModel.SelectedDatabaseSource.Name;
+            applicationStore.DbSource = databaseSourceViewModel.DbSource;
+
             mainWindowViewModel.SelectedLanguage = languageSelectionViewModel.SelectedLanguage.Name;
 
             dict = new ResourceDictionary();
@@ -67,6 +77,7 @@ namespace Vizsgaremek
         {
             DatabaseSourceEventArg dsea = (DatabaseSourceEventArg) e;
             mainWindowViewModel.SelectedSource = dsea.DatabaseSource;
+            applicationStore.DbSource = databaseSourceViewModel.DbSource;
         }
 
         private void LanguageSelectionViewModel_ChangeLanguage(object sender, EventArgs e)
@@ -97,7 +108,7 @@ namespace Vizsgaremek
                         Close();
                         break;
                     case "lviTeacher":
-                        TeacherPage teacherPage = new TeacherPage();
+                        TeacherPage teacherPage = new TeacherPage(teacherPageViewModel);
                         Navigation.Navigete(teacherPage);
                         break;
                     case "lviLanguageSelection":

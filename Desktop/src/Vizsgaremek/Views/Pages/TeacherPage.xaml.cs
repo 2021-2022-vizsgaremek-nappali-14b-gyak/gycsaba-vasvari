@@ -23,9 +23,10 @@ namespace Vizsgaremek.Views.Pages
     /// </summary>
     public partial class TeacherPage : UserControl
     {
-        public TeacherPage()
+        TeacherPageViewModel teacherPageViewModel;
+        public TeacherPage(TeacherPageViewModel teacherPageViewModel)
         {
-            TeacherPageViewModel teacherPageViewModel = new TeacherPageViewModel();
+            this.teacherPageViewModel = teacherPageViewModel;
             InitializeComponent();
             this.DataContext = teacherPageViewModel;
         }

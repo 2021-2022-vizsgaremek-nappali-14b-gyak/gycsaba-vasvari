@@ -20,7 +20,8 @@
                         Height="80" 
                         Width="200" 
                         ItemsSource="{Binding Path=DisplayedDatabaseSources}" 
-                        SelectedItem="{Binding Path=SelectedDatabaseSource}">
+                        SelectedItem="{Binding Path=SelectedDatabaseSource}"
+                        SelectedIndex="0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock 

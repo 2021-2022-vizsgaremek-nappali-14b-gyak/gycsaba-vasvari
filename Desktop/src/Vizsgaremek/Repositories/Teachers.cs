@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Vizsgaremek.Models;
+using Vizsgaremek.Stores;
+using Vizsgaremek.Repositories.Interface;
 
 namespace Vizsgaremek.Repositories
 {
-    class Teachers
+    public partial class Teachers : IRepositoryAPIStringId<Teacher>
     {
         private List<Teacher> teachers;
 
@@ -16,14 +18,19 @@ namespace Vizsgaremek.Repositories
         {
             get
             {
+                teachers.Clear();
+                teachers = new List<Teacher>();
+                teachers = GetAll();
                 return teachers;
             }
         }
 
-        public Teachers()
+        private ApplicationStore applicationStore;
+        public Teachers(ApplicationStore applicationStore)
         {
+            this.applicationStore = applicationStore;
             teachers = new List<Teacher>();
-            MakeTestData();
+            teachers = GetAll();
         }
 
         public void MakeTestData()
@@ -35,6 +42,7 @@ namespace Vizsgaremek.Repositories
             teachers.Add(new Teacher("10101111115", "Sportoló", "Jenő", "123456", false, EmploymentValue.DONEONCOMMISSION));
             teachers.Add(new Teacher("10101111116", "Visszanéző", "Viola", "123456", false, EmploymentValue.DONEONCOMMISSION));
         }
+
 
     }
 }
