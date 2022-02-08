@@ -32,6 +32,8 @@ namespace Vizsgaremek.ViewModels
             this.teachersRepo = new Teachers(applicationStore);
             this.displayedTeachers = new ObservableCollection<Teacher>(teachersRepo.AllTeachers);
             this.applicationStore = applicationStore;
+
+            teacherControlViewModels = new TeacherControlViewModel();
         }
 
         public ObservableCollection<Teacher> DisplayedTeachers
