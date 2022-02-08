@@ -39,7 +39,12 @@ namespace Vizsgaremek.Views.Pages
 
         private void dgTeachers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (dgTeachers.SelectedIndex < 0)
+                ctTeacher.Visibility = Visibility.Hidden;
+            else
+            {
+                ctTeacher.Visibility = Visibility.Visible;
+            }
         }
     }
 }
