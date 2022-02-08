@@ -8,7 +8,7 @@ using Vizsgaremek.Models;
 
 namespace Vizsgaremek.ViewModels
 {
-    class TeacherControlViewModel
+    public class TeacherControlViewModel
     {
         private Teacher editedTeacher;
 

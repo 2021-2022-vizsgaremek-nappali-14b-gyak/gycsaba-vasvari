@@ -19,6 +19,14 @@ namespace Vizsgaremek.ViewModels
 
         private ApplicationStore applicationStore;
 
+        private TeacherControlViewModel teacherControlViewModels;
+
+        public TeacherControlViewModel TeacherControlViewModels
+        {
+            get => teacherControlViewModels;
+            set => teacherControlViewModels = value;
+        }
+
         public TeacherPageViewModel(ApplicationStore applicationStore)
         {
             this.teachersRepo = new Teachers(applicationStore);
