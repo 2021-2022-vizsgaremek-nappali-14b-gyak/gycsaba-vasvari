@@ -36,5 +36,16 @@ namespace Vizsgaremek.Views.Pages
             WelcomePage welcomePage = new WelcomePage();
             Navigation.Navigete(welcomePage);
         }
+
+        private void dgTeachers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dgTeachers.SelectedIndex < 0)
+                ctTeacher.Visibility = Visibility.Hidden;
+            else
+            {
+                ctTeacher.Visibility = Visibility.Visible;
+                ctTeacher.ModifyTeacherInTeacherControlViewModel(teacherPageViewModel.TeacherControlViewModels, teacherPageViewModel.SelectedTeacher);
+            }
+        }
     }
 }

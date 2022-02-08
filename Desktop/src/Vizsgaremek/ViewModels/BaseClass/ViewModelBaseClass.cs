@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 
 namespace Vizsgaremek.ViewModels.BaseClass
 {
-    class ViewModelBaseClass : INotifyPropertyChanged
+    public class ViewModelBaseClass : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -16,14 +16,44 @@ namespace Vizsgaremek.ViewModels
 
         private Teachers teachersRepo;
         ObservableCollection<Teacher> displayedTeachers;
+        private Teacher selectedTeacher;
 
         private ApplicationStore applicationStore;
+
+        private TeacherControlViewModel teacherControlViewModels;
+
+        public TeacherControlViewModel TeacherControlViewModels
+        {
+            get => teacherControlViewModels;
+            set => teacherControlViewModels = value;
+        }
+
+        public Teacher SelectedTeacher
+        {
+            get
+            {
+                return selectedTeacher;
+            }
+
+            set
+            {
+                Teacher selectedTeacherInDataGrid = value as Teacher;
+                if (selectedTeacherInDataGrid != null)
+                {
+                    selectedTeacher = value;
+
+                }
+            }
+        }
 
         public TeacherPageViewModel(ApplicationStore applicationStore)
         {
             this.teachersRepo = new Teachers(applicationStore);
             this.displayedTeachers = new ObservableCollection<Teacher>(teachersRepo.AllTeachers);
             this.applicationStore = applicationStore;
+
+            teacherControlViewModels = new TeacherControlViewModel();
+            selectedTeacher = new Teacher();
         }
 
         public ObservableCollection<Teacher> DisplayedTeachers
