@@ -7,25 +7,31 @@ using System.Threading.Tasks;
 using Vizsgaremek.Repositories;
 using System.Collections.ObjectModel;
 using Vizsgaremek.Models;
+using Vizsgaremek.Stores;
 
 namespace Vizsgaremek.ViewModels
 {
-    class TeacherPageViewModel
+    public class TeacherPageViewModel
     { 
 
         private Teachers teachersRepo;
         ObservableCollection<Teacher> displayedTeachers;
 
-        public TeacherPageViewModel()
+        private ApplicationStore applicationStore;
+
+        public TeacherPageViewModel(ApplicationStore applicationStore)
         {
-            teachersRepo = new Teachers();
-            displayedTeachers = new ObservableCollection<Teacher>(teachersRepo.AllTeachers);
+            this.teachersRepo = new Teachers(applicationStore);
+            this.displayedTeachers = new ObservableCollection<Teacher>(teachersRepo.AllTeachers);
+            this.applicationStore = applicationStore;
         }
 
         public ObservableCollection<Teacher> DisplayedTeachers
         {
             get
             {
+                displayedTeachers.Clear();
+                displayedTeachers = new ObservableCollection<Teacher>(teachersRepo.AllTeachers);
                 return displayedTeachers;
             }
         }

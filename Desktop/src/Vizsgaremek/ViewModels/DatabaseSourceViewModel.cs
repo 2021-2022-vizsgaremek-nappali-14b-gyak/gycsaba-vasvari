@@ -53,7 +53,12 @@ namespace Vizsgaremek.ViewModels
         {
             repoDatabaseSouerces = new DatabaseSources();
             displayedDatabaseSources = new ObservableCollection<DatabaseSource>(repoDatabaseSouerces.GetAllDatabaseSources());
-            SelectedDatabaseSource = repoDatabaseSouerces.StoredSelectedSource;
+            if (displayedDatabaseSources.Count > 0)
+            {
+                SelectedDatabaseSource = displayedDatabaseSources[0];
+                OnDatabaseSourceChange();
+            }
+            
         }
 
         // Esemény kiváltása (raise)
