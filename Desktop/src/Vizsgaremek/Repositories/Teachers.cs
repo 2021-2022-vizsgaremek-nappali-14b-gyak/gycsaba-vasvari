@@ -18,9 +18,7 @@ namespace Vizsgaremek.Repositories
         {
             get
             {
-                teachers.Clear();
-                teachers = new List<Teacher>();
-                teachers = GetAll();
+                Update();
                 return teachers;
             }
         }
@@ -43,6 +41,12 @@ namespace Vizsgaremek.Repositories
             teachers.Add(new Teacher("10101111116", "Visszanéző", "Viola", "123456", false, EmploymentValue.DONEONCOMMISSION));
         }
 
+        public void Update()
+        {
+            teachers.Clear();
+            teachers = new List<Teacher>();
+            teachers = GetAll();
+        }
 
     }
 }
