@@ -29,7 +29,10 @@ namespace Vizsgaremek.Views.Controls
             InitializeComponent();
         }
 
-
-
+        public  void ModifyTeacherInTeacherControlViewModel(TeacherControlViewModel teacherControlViewModel, Teacher selectedTeacher)
+        {
+            DataContext = teacherControlViewModel;
+            teacherControlViewModel.EditedTeacher = selectedTeacher;
+        }
     }
 }
