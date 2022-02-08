@@ -20,6 +20,8 @@
                            AutoGenerateColumns="False"      
                            SelectionChanged="dgTeachers_SelectionChanged"
                            ItemsSource="{Binding DisplayedTeachers}"
+                           SelectedValue="{Binding SelectedTeacher}"
+                           SelectedItem="{Binding SelectedTeacher}"                              
                            >
                     <DataGrid.Columns>
                         <DataGridTextColumn x:Name="teacherID" MinWidth="100" IsReadOnly="True" Header="Azonosító" Binding="{Binding Id}"></DataGridTextColumn>
