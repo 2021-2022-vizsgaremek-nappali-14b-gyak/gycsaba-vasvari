@@ -44,6 +44,7 @@ namespace Vizsgaremek.Views.Pages
             else
             {
                 ctTeacher.Visibility = Visibility.Visible;
+                ctTeacher.ModifyTeacherInTeacherControlViewModel(teacherPageViewModel.TeacherControlViewModels, teacherPageViewModel.SelectedTeacher);
             }
         }
     }
