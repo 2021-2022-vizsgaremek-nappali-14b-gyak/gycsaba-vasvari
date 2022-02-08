@@ -36,5 +36,10 @@ namespace Vizsgaremek.Views.Pages
             WelcomePage welcomePage = new WelcomePage();
             Navigation.Navigete(welcomePage);
         }
+
+        private void dgTeachers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
