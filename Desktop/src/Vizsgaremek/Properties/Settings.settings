@@ -12,10 +12,10 @@
       <Value Profile="(Default)">test</Value>
     </Setting>
     <Setting Name="storedLanguage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">hu-HU</Value>
+      <Value Profile="(Default)">magyar</Value>
     </Setting>
     <Setting Name="storedLanguageToolTip" Type="System.String" Scope="User">
-      <Value Profile="(Default)">magyar</Value>
+      <Value Profile="(Default)">hu-Hu</Value>
     </Setting>
   </Settings>
 </SettingsFile>
