@@ -17,7 +17,7 @@ namespace Vizsgaremek.Models.Tests
         {
             // arrange
             ProgramInfo programInfo = new ProgramInfo();
-            Version expected = new Version(0, 1, 0, 1);
+            Version expected = new Version(0, 2, 0, 0);
 
             // act
             Version actual = programInfo.Version;
