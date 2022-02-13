@@ -31,8 +31,8 @@ namespace Vizsgaremek.Repositories
         public List<LanguageSetting> GetAllLanguage()
         {
             languageSettingsItems = new List<LanguageSetting>();
-            ApplicationConfigurations appConfigRepo = new ApplicationConfigurations();
-            Dictionary<string, string> allPossobleLanguages = appConfigRepo.Languages;
+
+            Dictionary<string, string> allPossobleLanguages = ApplicationConfigurations.Languages;
 
             foreach (KeyValuePair<string, string> possibleLanguage in allPossobleLanguages)
             {

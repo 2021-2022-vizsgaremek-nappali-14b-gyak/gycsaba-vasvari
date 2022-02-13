@@ -21,6 +21,7 @@ using System.Globalization;
 using System.Threading;
 
 using Vizsgaremek.Stores;
+using Vizsgaremek.Repositories;
 
 namespace Vizsgaremek
 {
@@ -36,11 +37,10 @@ namespace Vizsgaremek
 
         private ApplicationStore applicationStore;
 
-        private ResourceDictionary dict;
-
         public MainWindow()
         {
             applicationStore = new ApplicationStore();
+            Navigation.mainWindow = this;
 
             // Különböző ablakok adatai
             mainWindowViewModel = new MainWindowViewModel();
@@ -51,10 +51,8 @@ namespace Vizsgaremek
             applicationStore.DbSource = databaseSourceViewModel.DbSource;
 
             mainWindowViewModel.SelectedLanguage = languageSelectionViewModel.SelectedLanguage.Name;
-
-            dict = new ResourceDictionary();
             CultureInfo.CurrentCulture = new CultureInfo(languageSelectionViewModel.SelectedLanguage.ToolTip);
-            SetLanguageDictionary();
+            ApplicationConfigurations.SelectedLanguage = languageSelectionViewModel.SelectedLanguage.ToolTip;
 
             // Feliratkozunk az eseményre. Ha változik az adat az adott osztályba tudni fogunk róla!
             databaseSourceViewModel.ChangeDatabaseSource += DatabaseSourceViewModel_ChangeDatabaseSource;
@@ -66,7 +64,7 @@ namespace Vizsgaremek
             this.DataContext = mainWindowViewModel;
             // Statikus osztály a Navigate
             // Eltárolja a nyitó ablakt, hogy azon tudjuk módosítani a "page"-ket
-            Navigation.mainWindow = this;
+
             // Létrehozzuk a nyitó "UsuerControl" (WelcomPage)
             WelcomePage welcomePage = new WelcomePage();
             // Megjelnítjük a WelcomePage-t
@@ -77,6 +75,7 @@ namespace Vizsgaremek
         {
             DatabaseSourceEventArg dsea = (DatabaseSourceEventArg) e;
             mainWindowViewModel.SelectedSource = dsea.DatabaseSource;
+            ApplicationConfigurations.SelectedDatabaseSources = dsea.DatabaseSource;
             applicationStore.DbSource = databaseSourceViewModel.DbSource;
         }
 
@@ -85,7 +84,7 @@ namespace Vizsgaremek
             LanguageSelectionEventArg lsea = (LanguageSelectionEventArg)e;
             mainWindowViewModel.SelectedLanguage = lsea.SelectedLanguage;
             CultureInfo.CurrentCulture = new CultureInfo(languageSelectionViewModel.SelectedLanguage.ToolTip);
-            SetLanguageDictionary();
+            ApplicationConfigurations.SelectedLanguage = languageSelectionViewModel.SelectedLanguage.ToolTip;
         }
 
         /// <summary>
@@ -124,46 +123,6 @@ namespace Vizsgaremek
                         Navigation.Navigete(programVersion);
                         break;
                 }                
-            }
-        }
-
-        private void SetLanguageDictionary()
-        {
-            dict = new ResourceDictionary();
-            switch (Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)
-            {
-                case "en":
-                    dict.Source = new Uri("..\\Resources\\StringResources.xaml", UriKind.Relative);
-                    break;
-
-                case "fr":
-                    dict.Source = new Uri("..\\Resources\\FR\\StringResources.xaml", UriKind.Relative);
-                    break;
-                case "hu":
-                    dict.Source = new Uri("..\\Resources\\HU\\StringResources.xaml", UriKind.Relative);
-                    break;
-                default:
-                    dict.Source = new Uri("..\\Resources\\StringResources.xaml", UriKind.Relative);
-                    break;
-            }
-            int langDictId = -1;
-            bool found = false;
-            for (int i = 0; i < this.Resources.MergedDictionaries.Count && !found; i++)
-            {
-                var md = this.Resources.MergedDictionaries[i];
-                if (md.Contains(Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
-                {
-                    langDictId = i;
-                    found = true;
-                }
-            }
-            if (!found)
-            {
-                this.Resources.MergedDictionaries.Add(dict);
-            }
-            else
-            {
-                this.Resources.MergedDictionaries[langDictId] = dict;
             }
         }
     }

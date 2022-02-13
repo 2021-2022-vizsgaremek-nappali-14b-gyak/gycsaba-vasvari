@@ -46,9 +46,9 @@ namespace Vizsgaremek.Repositories
             else
             {
                 databaseSourcesItems = new List<DatabaseSource>();
-                ApplicationConfigurations appConfigRepo = new ApplicationConfigurations();
+
                 Dictionary<string, string> allPossibleDatabaseSources = new Dictionary<string, string>();
-                allPossibleDatabaseSources = appConfigRepo.DatabaseSources;
+                allPossibleDatabaseSources = ApplicationConfigurations.DatabaseSources;
                 foreach (KeyValuePair<string, string> possibleDatabaseSource in allPossibleDatabaseSources)
                 {
                     DatabaseSource item = new DatabaseSource()
