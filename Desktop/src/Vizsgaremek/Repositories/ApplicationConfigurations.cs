@@ -78,6 +78,14 @@ namespace Vizsgaremek.Repositories
             Navigation.mainWindow.Resources.MergedDictionaries.Add(resourceDictionary);
         }
 
+        public static ResourceDictionary GetActualDictionary()
+        {
+            if (Navigation.mainWindow.Resources.MergedDictionaries.Count > 0)
+                return Navigation.mainWindow.Resources.MergedDictionaries[0];
+            else
+                return null;
+        }
+
         public static int GetLanguageDictionaryIndex()
         {
             int langDictId = -1;
