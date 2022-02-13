@@ -78,6 +78,7 @@ namespace Vizsgaremek
         {
             DatabaseSourceEventArg dsea = (DatabaseSourceEventArg) e;
             mainWindowViewModel.SelectedSource = dsea.DatabaseSource;
+            ApplicationConfigurations.SelectedDatabaseSources = dsea.DatabaseSource;
             applicationStore.DbSource = databaseSourceViewModel.DbSource;
         }
 
