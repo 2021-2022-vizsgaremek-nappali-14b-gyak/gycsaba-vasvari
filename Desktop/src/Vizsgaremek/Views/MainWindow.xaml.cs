@@ -21,6 +21,7 @@ using System.Globalization;
 using System.Threading;
 
 using Vizsgaremek.Stores;
+using Vizsgaremek.Repositories;
 
 namespace Vizsgaremek
 {
@@ -84,8 +85,8 @@ namespace Vizsgaremek
         {
             LanguageSelectionEventArg lsea = (LanguageSelectionEventArg)e;
             mainWindowViewModel.SelectedLanguage = lsea.SelectedLanguage;
+            ApplicationConfigurations.SelectedLanguage = languageSelectionViewModel.SelectedLanguage.ToolTip;
             CultureInfo.CurrentCulture = new CultureInfo(languageSelectionViewModel.SelectedLanguage.ToolTip);
-            SetLanguageDictionary();
         }
 
         /// <summary>
