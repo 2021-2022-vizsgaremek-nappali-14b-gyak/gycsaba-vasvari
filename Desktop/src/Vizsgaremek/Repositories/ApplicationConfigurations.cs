@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 using System.Configuration;
 
 using System.Collections.Specialized;
+using System.Windows;
+using System.Threading;
+
+using Vizsgaremek.Views.Navigations;
 
 namespace Vizsgaremek.Repositories
 {
@@ -14,6 +18,7 @@ namespace Vizsgaremek.Repositories
     {
         private static string selectedLanguage;
         private static string selectedDatabaseSources;
+        private static ResourceDictionary resourceDictionary;
 
         private static string appName;
         private static Dictionary<string, string> databaseSources;
@@ -40,6 +45,46 @@ namespace Vizsgaremek.Repositories
 
             languages = new Dictionary<string, string>();
             languages = lanuagesSettingsConfigSection.AllKeys.ToDictionary(k => k, k => lanuagesSettingsConfigSection[k]);
+        }
+
+        private static void SetLanguageDictionary()
+        {
+            resourceDictionary = new ResourceDictionary();
+            switch (Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)
+            {
+                case "en":
+                    resourceDictionary.Source = new Uri("..\\Resources\\en\\StringResources.xaml", UriKind.Relative);
+                    break;
+
+                case "fr":
+                    resourceDictionary.Source = new Uri("..\\Resources\\fr\\StringResources.xaml", UriKind.Relative);
+                    break;
+                case "hu":
+                    resourceDictionary.Source = new Uri("..\\Resources\\hu\\StringResources.xaml", UriKind.Relative);
+                    break;
+                default:
+                    resourceDictionary.Source = new Uri("..\\Resources\\StringResources.xaml", UriKind.Relative);
+                    break;
+            }
+            int langDictId = -1;
+            bool found = false;
+            for (int i = 0; i < Navigation.mainWindow.Resources.MergedDictionaries.Count && !found; i++)
+            {
+                var md = Navigation.mainWindow.Resources.MergedDictionaries[i].Source.ToString(); ;
+                if (md.Contains(Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
+                {
+                    langDictId = i;
+                    found = true;
+                }
+            }
+            if (!found)
+            {
+                Navigation.mainWindow.Resources.MergedDictionaries.Add(resourceDictionary);
+            }
+            else
+            {
+                Navigation.mainWindow.Resources.MergedDictionaries[langDictId] = resourceDictionary;
+            }
         }
     }
 }
