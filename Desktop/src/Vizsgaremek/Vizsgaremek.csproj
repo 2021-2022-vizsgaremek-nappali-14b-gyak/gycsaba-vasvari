@@ -52,4 +52,10 @@
     </Compile>
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Update="Resources\en\StringResources.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+  </ItemGroup>
+
 </Project>
