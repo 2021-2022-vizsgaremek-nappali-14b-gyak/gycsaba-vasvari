@@ -27,7 +27,15 @@ namespace Vizsgaremek.Repositories
         public static string AppName { get => appName; set => appName = value; }
         public static Dictionary<string, string> DatabaseSources { get => databaseSources; set => databaseSources = value; }
         public static Dictionary<string, string> Languages { get => languages; set => languages = value; }
-        public static string SelectedLanguage { get => selectedLanguage; set => selectedLanguage = value; }
+        public static string SelectedLanguage 
+        {
+            get => selectedLanguage;
+            set
+            {
+                selectedLanguage = value;
+                SetLanguageDictionary();
+            }
+        }
         public static string SelectedDatabaseSources { get => selectedDatabaseSources; set => selectedDatabaseSources = value; }
 
         static ApplicationConfigurations()
