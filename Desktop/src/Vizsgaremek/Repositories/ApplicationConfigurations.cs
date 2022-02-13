@@ -86,5 +86,28 @@ namespace Vizsgaremek.Repositories
                 Navigation.mainWindow.Resources.MergedDictionaries[langDictId] = resourceDictionary;
             }
         }
+
+        public static int GetLanguageDictionaryIndex()
+        {
+            int langDictId = -1;
+            bool found = false;
+            for (int i = 0; i < Navigation.mainWindow.Resources.MergedDictionaries.Count && !found; i++)
+            {
+                var md = Navigation.mainWindow.Resources.MergedDictionaries[i].Source.ToString(); ;
+                if (md.Contains(Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
+                {
+                    langDictId = i;
+                    found = true;
+                }
+            }
+            if (!found)
+            {
+                return -1;
+            }
+            else
+            {
+                return langDictId;
+            }
+        }
     }
 }
