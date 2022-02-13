@@ -42,8 +42,8 @@ namespace Vizsgaremek.Repositories
         {
             var name = ConfigurationManager.AppSettings.Get("name");
 
-            selectedLanguage = Properties.Settings.Default.storedLanguageToolTip;
-            selectedDatabaseSources = Properties.Settings.Default.storedDataSource;
+            SelectedLanguage = Properties.Settings.Default.storedLanguageToolTip;
+            SelectedDatabaseSources = Properties.Settings.Default.storedDataSource;
 
             NameValueCollection devopsVersionsConfigSection = ConfigurationManager.GetSection("devopsVersions") as NameValueCollection;
             NameValueCollection lanuagesSettingsConfigSection = ConfigurationManager.GetSection("languages") as NameValueCollection;
@@ -74,25 +74,8 @@ namespace Vizsgaremek.Repositories
                     resourceDictionary.Source = new Uri("..\\Resources\\StringResources.xaml", UriKind.Relative);
                     break;
             }
-            int langDictId = -1;
-            bool found = false;
-            for (int i = 0; i < Navigation.mainWindow.Resources.MergedDictionaries.Count && !found; i++)
-            {
-                var md = Navigation.mainWindow.Resources.MergedDictionaries[i].Source.ToString(); ;
-                if (md.Contains(Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
-                {
-                    langDictId = i;
-                    found = true;
-                }
-            }
-            if (!found)
-            {
-                Navigation.mainWindow.Resources.MergedDictionaries.Add(resourceDictionary);
-            }
-            else
-            {
-                Navigation.mainWindow.Resources.MergedDictionaries[langDictId] = resourceDictionary;
-            }
+            Navigation.mainWindow.Resources.MergedDictionaries.Clear();
+            Navigation.mainWindow.Resources.MergedDictionaries.Add(resourceDictionary);
         }
 
         public static int GetLanguageDictionaryIndex()

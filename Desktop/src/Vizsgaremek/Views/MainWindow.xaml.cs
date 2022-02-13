@@ -37,11 +37,10 @@ namespace Vizsgaremek
 
         private ApplicationStore applicationStore;
 
-        private ResourceDictionary dict;
-
         public MainWindow()
         {
             applicationStore = new ApplicationStore();
+            Navigation.mainWindow = this;
 
             // Különböző ablakok adatai
             mainWindowViewModel = new MainWindowViewModel();
@@ -52,10 +51,8 @@ namespace Vizsgaremek
             applicationStore.DbSource = databaseSourceViewModel.DbSource;
 
             mainWindowViewModel.SelectedLanguage = languageSelectionViewModel.SelectedLanguage.Name;
-
-            dict = new ResourceDictionary();
             CultureInfo.CurrentCulture = new CultureInfo(languageSelectionViewModel.SelectedLanguage.ToolTip);
-            SetLanguageDictionary();
+            ApplicationConfigurations.SelectedLanguage = languageSelectionViewModel.SelectedLanguage.ToolTip;
 
             // Feliratkozunk az eseményre. Ha változik az adat az adott osztályba tudni fogunk róla!
             databaseSourceViewModel.ChangeDatabaseSource += DatabaseSourceViewModel_ChangeDatabaseSource;
@@ -67,7 +64,7 @@ namespace Vizsgaremek
             this.DataContext = mainWindowViewModel;
             // Statikus osztály a Navigate
             // Eltárolja a nyitó ablakt, hogy azon tudjuk módosítani a "page"-ket
-            Navigation.mainWindow = this;
+
             // Létrehozzuk a nyitó "UsuerControl" (WelcomPage)
             WelcomePage welcomePage = new WelcomePage();
             // Megjelnítjük a WelcomePage-t
@@ -86,8 +83,8 @@ namespace Vizsgaremek
         {
             LanguageSelectionEventArg lsea = (LanguageSelectionEventArg)e;
             mainWindowViewModel.SelectedLanguage = lsea.SelectedLanguage;
-            ApplicationConfigurations.SelectedLanguage = languageSelectionViewModel.SelectedLanguage.ToolTip;
             CultureInfo.CurrentCulture = new CultureInfo(languageSelectionViewModel.SelectedLanguage.ToolTip);
+            ApplicationConfigurations.SelectedLanguage = languageSelectionViewModel.SelectedLanguage.ToolTip;
         }
 
         /// <summary>
