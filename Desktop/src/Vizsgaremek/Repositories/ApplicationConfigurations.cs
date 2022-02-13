@@ -12,6 +12,9 @@ namespace Vizsgaremek.Repositories
 {
     public static class ApplicationConfigurations
     {
+        private static string selectedLanguage;
+        private static string selectedDatabaseSources;
+
         private static string appName;
         private static Dictionary<string, string> databaseSources;
         private static Dictionary<string, string> languages;
@@ -19,10 +22,15 @@ namespace Vizsgaremek.Repositories
         public static string AppName { get => appName; set => appName = value; }
         public static Dictionary<string, string> DatabaseSources { get => databaseSources; set => databaseSources = value; }
         public static Dictionary<string, string> Languages { get => languages; set => languages = value; }
+        public static string SelectedLanguage { get => selectedLanguage; set => selectedLanguage = value; }
+        public static string SelectedDatabaseSources { get => selectedDatabaseSources; set => selectedDatabaseSources = value; }
 
         static ApplicationConfigurations()
         {
             var name = ConfigurationManager.AppSettings.Get("name");
+
+            selectedLanguage = Properties.Settings.Default.storedLanguageToolTip;
+            selectedDatabaseSources = Properties.Settings.Default.storedDataSource;
 
             NameValueCollection devopsVersionsConfigSection = ConfigurationManager.GetSection("devopsVersions") as NameValueCollection;
             NameValueCollection lanuagesSettingsConfigSection = ConfigurationManager.GetSection("languages") as NameValueCollection;
