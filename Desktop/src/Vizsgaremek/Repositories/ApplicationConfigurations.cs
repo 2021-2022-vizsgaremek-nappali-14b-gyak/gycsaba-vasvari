@@ -10,17 +10,17 @@ using System.Collections.Specialized;
 
 namespace Vizsgaremek.Repositories
 {
-    public class ApplicationConfigurations
+    public static class ApplicationConfigurations
     {
-        private string appName;
-        private Dictionary<string, string> databaseSources;
-        private Dictionary<string, string> languages;
+        private static string appName;
+        private static Dictionary<string, string> databaseSources;
+        private static Dictionary<string, string> languages;
 
-        public string AppName { get => appName; set => appName = value; }
-        public Dictionary<string, string> DatabaseSources { get => databaseSources; set => databaseSources = value; }
-        public Dictionary<string, string> Languages { get => languages; set => languages = value; }
+        public static string AppName { get => appName; set => appName = value; }
+        public static Dictionary<string, string> DatabaseSources { get => databaseSources; set => databaseSources = value; }
+        public static Dictionary<string, string> Languages { get => languages; set => languages = value; }
 
-        public ApplicationConfigurations()
+        static ApplicationConfigurations()
         {
             var name = ConfigurationManager.AppSettings.Get("name");
 
