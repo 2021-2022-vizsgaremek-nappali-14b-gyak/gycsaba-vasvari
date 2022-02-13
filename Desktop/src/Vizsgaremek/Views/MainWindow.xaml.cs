@@ -126,46 +126,6 @@ namespace Vizsgaremek
                 }                
             }
         }
-
-        private void SetLanguageDictionary()
-        {
-            dict = new ResourceDictionary();
-            switch (Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName)
-            {
-                case "en":
-                    dict.Source = new Uri("..\\Resources\\StringResources.xaml", UriKind.Relative);
-                    break;
-
-                case "fr":
-                    dict.Source = new Uri("..\\Resources\\FR\\StringResources.xaml", UriKind.Relative);
-                    break;
-                case "hu":
-                    dict.Source = new Uri("..\\Resources\\HU\\StringResources.xaml", UriKind.Relative);
-                    break;
-                default:
-                    dict.Source = new Uri("..\\Resources\\StringResources.xaml", UriKind.Relative);
-                    break;
-            }
-            int langDictId = -1;
-            bool found = false;
-            for (int i = 0; i < this.Resources.MergedDictionaries.Count && !found; i++)
-            {
-                var md = this.Resources.MergedDictionaries[i];
-                if (md.Contains(Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName))
-                {
-                    langDictId = i;
-                    found = true;
-                }
-            }
-            if (!found)
-            {
-                this.Resources.MergedDictionaries.Add(dict);
-            }
-            else
-            {
-                this.Resources.MergedDictionaries[langDictId] = dict;
-            }
-        }
     }
 }
 
