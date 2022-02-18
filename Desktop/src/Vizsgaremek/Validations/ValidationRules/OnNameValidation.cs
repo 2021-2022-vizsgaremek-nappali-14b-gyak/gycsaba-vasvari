@@ -38,5 +38,30 @@ namespace Vizsgaremek.Validations.ValidationRules
             }
             return true;
         }
+
+        public bool FirstLetterIsUpperOtherisLower()
+        {
+            if (stringToValidate.Length > 0)
+            {
+                char firstLatter = stringToValidate.ElementAt(0);
+                if (char.IsLower(firstLatter))
+                {
+                    errorMessage = dictionary["validationStringFirstLetterNotUpper"].ToString();
+                    return false;
+                }
+            }
+            if (stringToValidate.Length > 1)
+            {
+                foreach (char c in stringToValidate.Substring(1))
+                {
+                    if (char.IsUpper(c))
+                    {
+                        errorMessage = dictionary["validationStringAfterFirstLetterNotLowercase"].ToString();
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
     }
 }
