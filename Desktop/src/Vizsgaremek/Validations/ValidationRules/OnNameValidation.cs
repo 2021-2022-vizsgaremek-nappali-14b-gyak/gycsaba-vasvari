@@ -63,5 +63,14 @@ namespace Vizsgaremek.Validations.ValidationRules
             }
             return true;
         }
+        public bool StringIsEnoughLength(int expectedLenth)
+        {
+            if (stringToValidate.Length < expectedLenth)
+            {
+                errorMessage = dictionary["validationStringStringIsNotEnoughLengt"].ToString();
+                return false;
+            }
+            return true;
+        }
     }
 }
