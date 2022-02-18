@@ -32,6 +32,9 @@
                 <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtTeacherLastName" Margin="5 5 5 5 ">
                     <TextBox.Text>
                         <Binding Path="EditedTeacher.LastName" ValidatesOnDataErrors="True">
+                            <Binding.ValidationRules>
+                                <validation:NameValidation />
+                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>                   
                 </TextBox>
