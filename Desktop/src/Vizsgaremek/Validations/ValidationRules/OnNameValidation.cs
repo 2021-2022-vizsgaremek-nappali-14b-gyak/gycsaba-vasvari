@@ -25,6 +25,18 @@ namespace Vizsgaremek.Validations.ValidationRules
             dictionary = ApplicationConfigurations.GetActualDictionary();
         }
 
-
+        public bool NotNullOrEmpty()
+        {
+            if (stringToValidate == null)
+            {
+                return false;
+            }
+            if (stringToValidate == string.Empty)
+            {
+                errorMessage = dictionary["validationStringIsEmpty"].ToString();
+                return false;
+            }
+            return true;
+        }
     }
 }
