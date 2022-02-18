@@ -6,5 +6,10 @@
     https://docs.microsoft.com/et-ee/dotnet/desktop/wpf/advanced/how-to-use-a-resourcedictionary-to-manage-localizable-string-resources?view=netframeworkdesktop-4.8
  -->
     <system:String x:Key="strMenuExit">Exit</system:String>
-    
+    <system:String x:Key="validationStringIsNull">English</system:String>
+    <system:String x:Key="validationStringIsEmpty">English</system:String>
+    <system:String x:Key="validationStringFirstLetterNotUpper">English</system:String>
+    <system:String x:Key="validationStringAfterFirstLetterNotLowercase">English</system:String>
+    <system:String x:Key="validationStringStringIsNotEnoughLengt">English</system:String>
+
 </ResourceDictionary>
