@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Windows;
+using Vizsgaremek.Repositories;
 
 namespace Vizsgaremek.Validations.ValidationRules
 {
@@ -15,5 +16,13 @@ namespace Vizsgaremek.Validations.ValidationRules
         private ResourceDictionary dictionary;
 
         public string ErrorMessage { get => errorMessage; }
+
+        public OnNameValidation(string nameToValidate)
+        {
+            this.stringToValidate = nameToValidate;
+            errorMessage = string.Empty;
+
+            dictionary = ApplicationConfigurations.GetActualDictionary();
+        }
     }
 }
