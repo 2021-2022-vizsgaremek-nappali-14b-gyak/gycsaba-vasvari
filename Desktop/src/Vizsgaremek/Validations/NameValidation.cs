@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Windows.Controls;
+using Vizsgaremek.Validations.ValidationRules;
 
 namespace Vizsgaremek.Validations
 {
@@ -16,6 +17,7 @@ namespace Vizsgaremek.Validations
             if (value is string)
             {
                 string stringToValidate = (string)value;
+                OnNameValidation sv = new OnNameValidation(stringToValidate);
             }
             else
                 return new ValidationResult(true, "");
