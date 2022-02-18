@@ -6,5 +6,10 @@
     https://docs.microsoft.com/et-ee/dotnet/desktop/wpf/advanced/how-to-use-a-resourcedictionary-to-manage-localizable-string-resources?view=netframeworkdesktop-4.8
  -->
     <system:String x:Key="strMenuExit">Kilépés</system:String>
+    <system:String x:Key="validationStringIsNull">Az adat hiányzik!</system:String>
+    <system:String x:Key="validationStringIsEmpty">A mező nem lehet üres!</system:String>
+    <system:String x:Key="validationStringFirstLetterNotUpper">Az első betűnek nagybetűnek kell lennie!</system:String>
+    <system:String x:Key="validationStringAfterFirstLetterNotLowercase">A nagybetű után kisbetűknek kell lennie!</system:String>
+    <system:String x:Key="validationStringStringIsNotEnoughLengt">Nem éri el a megfelelő hosszt!</system:String>
 
 </ResourceDictionary>

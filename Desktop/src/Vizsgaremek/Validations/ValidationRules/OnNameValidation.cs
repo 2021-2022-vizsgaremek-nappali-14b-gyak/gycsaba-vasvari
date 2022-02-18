@@ -24,5 +24,7 @@ namespace Vizsgaremek.Validations.ValidationRules
 
             dictionary = ApplicationConfigurations.GetActualDictionary();
         }
+
+
     }
 }
