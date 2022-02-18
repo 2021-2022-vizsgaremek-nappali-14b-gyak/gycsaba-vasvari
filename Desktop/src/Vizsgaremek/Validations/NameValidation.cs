@@ -20,6 +20,10 @@ namespace Vizsgaremek.Validations
                 OnNameValidation sv = new OnNameValidation(stringToValidate);
                 if (!sv.NotNullOrEmpty())
                     return new ValidationResult(false, sv.ErrorMessage);
+                if (!sv.FirstLetterIsUpperOtherisLower())
+                    return new ValidationResult(false, sv.ErrorMessage);
+                if (!sv.StringIsEnoughLength(5))
+                    return new ValidationResult(false, sv.ErrorMessage);
             }
             else
                 return new ValidationResult(true, "");
