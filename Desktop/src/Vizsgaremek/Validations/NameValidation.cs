@@ -24,6 +24,7 @@ namespace Vizsgaremek.Validations
                     return new ValidationResult(false, sv.ErrorMessage);
                 if (!sv.StringIsEnoughLength(5))
                     return new ValidationResult(false, sv.ErrorMessage);
+                return new ValidationResult(true, "");
             }
             else
                 return new ValidationResult(true, "");
