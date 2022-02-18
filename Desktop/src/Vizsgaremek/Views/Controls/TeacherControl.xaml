@@ -28,7 +28,12 @@
                 <TextBlock Grid.Row="0" Grid.Column="0" x:Name="tbId">Azonosító:</TextBlock>
                 <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtTeacherId" Margin="5 5 5 5 " IsReadOnly="True" Text="{Binding Path=EditedTeacher.Id}"></TextBox>
                 <TextBlock Grid.Row="1" Grid.Column="0" x:Name="tbLastName">Vezetéknév:</TextBlock>
-                <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtTeacherLastName" Margin="5 5 5 5 " Text="{Binding Path=EditedTeacher.LastName}"></TextBox>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtTeacherLastName" Margin="5 5 5 5 ">
+                    <TextBox.Text>
+                        <Binding Path="EditedTeacher.LastName">
+                        </Binding>
+                    </TextBox.Text>                   
+                </TextBox>
                 <TextBlock Grid.Row="2" Grid.Column="0" x:Name="tbFirstName">Keresztnév:</TextBlock>
                 <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtTeacherFirstName" Margin="5 5 5 5 " Text="{Binding  Path=EditedTeacher.FirstName}"></TextBox>
                 <TextBlock Grid.Row="3" Grid.Column="0" x:Name="tbLastPassword">Jelszó:</TextBlock>
