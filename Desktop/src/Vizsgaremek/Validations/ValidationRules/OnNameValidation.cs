@@ -13,5 +13,7 @@ namespace Vizsgaremek.Validations.ValidationRules
         private string stringToValidate;
         private string errorMessage;
         private ResourceDictionary dictionary;
+
+        public string ErrorMessage { get => errorMessage; }
     }
 }
