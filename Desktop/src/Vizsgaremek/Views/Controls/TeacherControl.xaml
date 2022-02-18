@@ -69,7 +69,15 @@
                     </TextBox.Text>                   
                 </TextBox>
                 <TextBlock Grid.Row="2" Grid.Column="0" x:Name="tbFirstName">Keresztnév:</TextBlock>
-                <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtTeacherFirstName" Margin="5 5 5 5 " Text="{Binding  Path=EditedTeacher.FirstName}"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtTeacherFirstName" Margin="5 5 5 5 ">
+                    <TextBox.Text>
+                        <Binding  Path="EditedTeacher.FirstName" ValidatesOnDataErrors="True" >
+                            <Binding.ValidationRules>
+                                <validation:NameValidation />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
                 <TextBlock Grid.Row="3" Grid.Column="0" x:Name="tbLastPassword">Jelszó:</TextBlock>
                 <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtTeacherPassword" Margin="5 5 5 5 " Text="{Binding Path=EditedTeacher.Password}"></TextBox>
                 <TextBlock Grid.Row="4" Grid.Column="0" x:Name="tbTeacherMeal">Étkezés:</TextBlock>
