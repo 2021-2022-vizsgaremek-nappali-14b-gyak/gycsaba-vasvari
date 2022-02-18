@@ -15,7 +15,7 @@ namespace Vizsgaremek.Validations
         {
             if (value is string)
             {
-
+                string stringToValidate = (string)value;
             }
             else
                 return new ValidationResult(true, "");
