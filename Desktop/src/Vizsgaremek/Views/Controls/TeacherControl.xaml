@@ -61,7 +61,7 @@
                 <TextBlock Grid.Row="1" Grid.Column="0" x:Name="tbLastName">Vezetéknév:</TextBlock>
                 <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtTeacherLastName" Margin="5 5 5 5 ">
                     <TextBox.Text>
-                        <Binding Path="EditedTeacher.LastName" ValidatesOnDataErrors="True">
+                        <Binding Path="EditedTeacher.LastName" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
                                 <validation:NameValidation />
                             </Binding.ValidationRules>
