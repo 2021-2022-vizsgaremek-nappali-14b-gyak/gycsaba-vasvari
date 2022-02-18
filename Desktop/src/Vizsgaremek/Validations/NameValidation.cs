@@ -18,6 +18,8 @@ namespace Vizsgaremek.Validations
             {
                 string stringToValidate = (string)value;
                 OnNameValidation sv = new OnNameValidation(stringToValidate);
+                if (!sv.NotNullOrEmpty())
+                    return new ValidationResult(false, sv.ErrorMessage);
             }
             else
                 return new ValidationResult(true, "");
