@@ -13,7 +13,12 @@ namespace Vizsgaremek.Validations
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            throw new NotImplementedException();
+            if (value is string)
+            {
+
+            }
+            else
+                return new ValidationResult(true, "");
         }
     }
 }
