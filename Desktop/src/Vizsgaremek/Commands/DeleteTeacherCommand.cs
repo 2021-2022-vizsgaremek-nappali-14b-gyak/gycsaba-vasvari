@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using Vizsgaremek.ViewModels;
 using Vizsgaremek.Stores;
 
-namespace Vizsgaremek.Command
+namespace Vizsgaremek.Commands
 {
-    class DeleteTeacherCommand
+    class DeleteTeacherCommand : CommandBase
     {
         // Ez a ViewModel tudja melyik tanárt kell törölni
         private readonly TeacherControlViewModel teacherControlViewModel;
