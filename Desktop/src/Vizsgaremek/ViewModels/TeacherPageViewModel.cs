@@ -46,13 +46,13 @@ namespace Vizsgaremek.ViewModels
             }
         }
 
-        public TeacherPageViewModel(ApplicationStore applicationStore)
+        public TeacherPageViewModel(ApplicationStore applicationStore, TeacherStore teacherStore, TeacherControlViewModel teacherControlViewModels)
         {
             this.teachersRepo = new Teachers(applicationStore);
             this.displayedTeachers = new ObservableCollection<Teacher>(teachersRepo.AllTeachers);
             this.applicationStore = applicationStore;
 
-            teacherControlViewModels = new TeacherControlViewModel();
+            teacherControlViewModels =
             selectedTeacher = new Teacher();
         }
 
