@@ -60,7 +60,7 @@ namespace Vizsgaremek.ViewModels
 
         private void TeacherStore_TeacherDeleteEvent(string id)
         {
-            Teacher techerToDelete = teachersRepo.FindTeacherWithId(string id);
+            Teacher techerToDelete = teachersRepo.FindTeacher(id);
         }
 
         public ObservableCollection<Teacher> DisplayedTeachers
