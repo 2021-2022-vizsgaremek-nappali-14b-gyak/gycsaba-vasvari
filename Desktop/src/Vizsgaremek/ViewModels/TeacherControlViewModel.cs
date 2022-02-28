@@ -8,6 +8,7 @@ using Vizsgaremek.Models;
 using Vizsgaremek.ViewModels.BaseClass;
 using Vizsgaremek.Stores;
 using System.Windows.Input;
+using Vizsgaremek.Commands;
 
 namespace Vizsgaremek.ViewModels
 {
@@ -34,6 +35,8 @@ namespace Vizsgaremek.ViewModels
         {
             editedTeacher = new Teacher();
             this.teacherStore = teacherStore;
+
+            DeleteTeacherCommand = new DeleteTeacherCommand(this, teacherStore);
         }
     }
 }
