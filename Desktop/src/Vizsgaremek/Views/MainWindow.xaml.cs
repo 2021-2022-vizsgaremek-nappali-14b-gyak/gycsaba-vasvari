@@ -42,6 +42,7 @@ namespace Vizsgaremek
         public MainWindow()
         {
             applicationStore = new ApplicationStore();
+            teacherStore = new TeacherStore();
             Navigation.mainWindow = this;
 
             // Különböző ablakok adatai

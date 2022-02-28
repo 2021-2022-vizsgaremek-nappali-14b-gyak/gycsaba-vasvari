@@ -12,8 +12,9 @@ using Vizsgaremek.Stores;
 namespace Vizsgaremek.ViewModels
 {
     public class TeacherPageViewModel
-    { 
+    {
 
+        private TeacherStore teacherStore;
         private Teachers teachersRepo;
         ObservableCollection<Teacher> displayedTeachers;
         private Teacher selectedTeacher;
@@ -55,6 +56,7 @@ namespace Vizsgaremek.ViewModels
             this.teacherControlViewModel = teacherControlViewModel;
             selectedTeacher = new Teacher();
 
+            this.teacherStore = teacherStore;
             teacherStore.TeacherDeleteEvent += TeacherStore_TeacherDeleteEvent; 
         }
 
