@@ -10,5 +10,9 @@ namespace Vizsgaremek.Stores
     {
         // https://www.youtube.com/watch?v=o62iFhXkWS4
         // https://github.com/SingletonSean/wpf-tutorials/tree/master/CommunicationMVVM
+        public  void DeleteTeacher(string id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
