@@ -76,6 +76,7 @@ namespace Vizsgaremek.Repositories
             switch (applicationStore.DbSource)
             {
                 case DbSource.NONE:
+                    DeleteTeacherFromTestData(id);
                     break;
                 case DbSource.LOCALHOST:
                     break;
