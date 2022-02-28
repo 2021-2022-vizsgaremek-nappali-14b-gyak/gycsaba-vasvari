@@ -39,5 +39,14 @@ namespace Vizsgaremek.Repositories
             }
             return false;
         }
+
+        private void DeleteTeacherFromTestData(string id)
+        {
+            Teacher techerToDelete = teachers.Find(teacher => teacher.Id == id);
+            if (techerToDelete != null)
+            {
+                teachers.Remove(techerToDelete);
+            }
+        }
     }
 }
