@@ -27,6 +27,16 @@ namespace Vizsgaremek.Repositories
         public Teachers(ApplicationStore applicationStore)
         {
             this.applicationStore = applicationStore;
+            switch (applicationStore.DbSource)
+            {
+                case DbSource.NONE:
+                    break;
+                case DbSource.LOCALHOST:
+                    break;
+                case DbSource.DEVOPS:
+                    break;
+            }
+
             teachers = new List<Teacher>();
             teachers = GetAll();
         }
@@ -43,9 +53,15 @@ namespace Vizsgaremek.Repositories
 
         public void Update()
         {
-            teachers.Clear();
-            teachers = new List<Teacher>();
-            teachers = GetAll();
+            if (applicationStore.DbSource == DbSource.NONE)
+            {
+                if (!FindTeacherWithId("10101111111"))
+                    teachers = GetAll();
+            }
+            else
+            {
+                teachers = GetAll();
+            }
         }
 
     }
