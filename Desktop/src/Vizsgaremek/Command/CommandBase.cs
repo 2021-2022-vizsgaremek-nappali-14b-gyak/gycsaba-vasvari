@@ -16,6 +16,11 @@ namespace Vizsgaremek.Commands
         public abstract bool CanExecute(object parameter);
 
         public abstract void Execute(object parameter);
-        
+
+        protected void OnCanExecuteChanged()
+        {
+            if (CanExecuteChanged != null)
+                CanExecuteChanged.Invoke(this, new EventArgs());
+        }
     }
 }
