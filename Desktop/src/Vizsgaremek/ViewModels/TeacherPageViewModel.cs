@@ -54,6 +54,8 @@ namespace Vizsgaremek.ViewModels
 
             this.teacherControlViewModel = teacherControlViewModel;
             selectedTeacher = new Teacher();
+
+            teacherStore.TeacherDeleteEvent += 
         }
 
         public ObservableCollection<Teacher> DisplayedTeachers
