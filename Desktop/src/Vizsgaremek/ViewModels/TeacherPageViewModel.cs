@@ -8,10 +8,11 @@ using Vizsgaremek.Repositories;
 using System.Collections.ObjectModel;
 using Vizsgaremek.Models;
 using Vizsgaremek.Stores;
+using Vizsgaremek.ViewModels.BaseClass;
 
 namespace Vizsgaremek.ViewModels
 {
-    public class TeacherPageViewModel
+    public class TeacherPageViewModel : ViewModelBaseClass
     {
 
         private TeacherStore teacherStore;
@@ -67,6 +68,7 @@ namespace Vizsgaremek.ViewModels
             {
                 DisplayedTeachers.Remove(techerToDelete);
                 teachersRepo.Delete(id);
+                OnPropertyChanged("DisplayedTeachers");
             }
         }
 
