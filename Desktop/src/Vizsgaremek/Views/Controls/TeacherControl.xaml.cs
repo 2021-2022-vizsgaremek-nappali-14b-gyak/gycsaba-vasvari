@@ -32,7 +32,8 @@ namespace Vizsgaremek.Views.Controls
         public  void ModifyTeacherInTeacherControlViewModel(TeacherControlViewModel teacherControlViewModel, Teacher selectedTeacher)
         {
             DataContext = teacherControlViewModel;
-            teacherControlViewModel.EditedTeacher = selectedTeacher;
+            Teacher editedTeacher = new Teacher(selectedTeacher);
+            teacherControlViewModel.EditedTeacher = editedTeacher;
         }
     }
 }

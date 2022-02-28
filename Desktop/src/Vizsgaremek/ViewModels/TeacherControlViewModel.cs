@@ -12,7 +12,6 @@ namespace Vizsgaremek.ViewModels
     public class TeacherControlViewModel : ViewModelBaseClass
     {
         private Teacher editedTeacher;
-
         public Teacher EditedTeacher
         {
             get

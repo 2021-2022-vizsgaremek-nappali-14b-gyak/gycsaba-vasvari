@@ -39,6 +39,16 @@ namespace Vizsgaremek.Models
             this.Emploeyment = emploeyment;
         }
 
+        public Teacher(Teacher teacher)
+        {
+            this.id = teacher.id;
+            this.lastName = teacher.lastName;
+            this.FirstName = teacher.firstName;
+            this.Password = teacher.password;
+            this.Meal = teacher.meal;
+            this.Emploeyment = teacher.emploeyment;
+        }
+
         public string Id { get => id; set => id = value; }
         public string LastName { get => lastName; set => lastName = value; }
         public string FirstName { get => firstName; set => firstName = value; }
