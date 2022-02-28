@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Vizsgaremek.Models;
 using Vizsgaremek.ViewModels.BaseClass;
 using Vizsgaremek.Stores;
+using System.Windows.Input;
 
 namespace Vizsgaremek.ViewModels
 {
@@ -14,6 +15,8 @@ namespace Vizsgaremek.ViewModels
     {
         private TeacherStore teacherStore;
         private Teacher editedTeacher;
+
+        public ICommand DeleteTeacherCommand { get; }
         public Teacher EditedTeacher
         {
             get
