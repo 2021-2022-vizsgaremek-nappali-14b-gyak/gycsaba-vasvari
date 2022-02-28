@@ -20,12 +20,12 @@ namespace Vizsgaremek.ViewModels
 
         private ApplicationStore applicationStore;
 
-        private TeacherControlViewModel teacherControlViewModels;
+        private TeacherControlViewModel teacherControlViewModel;
 
-        public TeacherControlViewModel TeacherControlViewModels
+        public TeacherControlViewModel TeacherControlViewModel
         {
-            get => teacherControlViewModels;
-            set => teacherControlViewModels = value;
+            get => teacherControlViewModel;
+            set => teacherControlViewModel = value;
         }
 
         public Teacher SelectedTeacher
@@ -52,7 +52,7 @@ namespace Vizsgaremek.ViewModels
             this.displayedTeachers = new ObservableCollection<Teacher>(teachersRepo.AllTeachers);
             this.applicationStore = applicationStore;
 
-            teacherControlViewModel =
+            this.teacherControlViewModel = teacherControlViewModel;
             selectedTeacher = new Teacher();
         }
 
