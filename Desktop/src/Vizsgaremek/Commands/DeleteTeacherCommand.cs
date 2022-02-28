@@ -31,7 +31,7 @@ namespace Vizsgaremek.Commands
 
         public override void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            teacherStore.DeleteTeacher(teacherControlViewModel.EditedTeacher.Id);
         }
     }
 }
