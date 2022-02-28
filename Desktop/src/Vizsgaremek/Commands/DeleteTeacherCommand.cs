@@ -24,7 +24,9 @@ namespace Vizsgaremek.Commands
 
         public override bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            // A tanár most mindig törölhető lesz, de ez nem így van, később azokat a tanárokat nem lesz szabad törölni
+            // amelyek törlése anomáliát okos az adatbázisba
+            return true;
         }
 
         public override void Execute(object parameter)
