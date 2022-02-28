@@ -15,7 +15,8 @@ namespace Vizsgaremek.Stores
 
         public  void DeleteTeacher(string id)
         {
-            throw new NotImplementedException();
+            if (TeacherDeleteEvent != null)
+                TeacherDeleteEvent.Invoke(id);
         }
     }
 }
