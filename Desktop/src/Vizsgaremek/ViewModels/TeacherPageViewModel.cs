@@ -8,24 +8,26 @@ using Vizsgaremek.Repositories;
 using System.Collections.ObjectModel;
 using Vizsgaremek.Models;
 using Vizsgaremek.Stores;
+using Vizsgaremek.ViewModels.BaseClass;
 
 namespace Vizsgaremek.ViewModels
 {
-    public class TeacherPageViewModel
-    { 
+    public class TeacherPageViewModel : ViewModelBaseClass
+    {
 
+        private TeacherStore teacherStore;
         private Teachers teachersRepo;
         ObservableCollection<Teacher> displayedTeachers;
         private Teacher selectedTeacher;
 
         private ApplicationStore applicationStore;
 
-        private TeacherControlViewModel teacherControlViewModels;
+        private TeacherControlViewModel teacherControlViewModel;
 
-        public TeacherControlViewModel TeacherControlViewModels
+        public TeacherControlViewModel TeacherControlViewModel
         {
-            get => teacherControlViewModels;
-            set => teacherControlViewModels = value;
+            get => teacherControlViewModel;
+            set => teacherControlViewModel = value;
         }
 
         public Teacher SelectedTeacher
@@ -46,14 +48,28 @@ namespace Vizsgaremek.ViewModels
             }
         }
 
-        public TeacherPageViewModel(ApplicationStore applicationStore)
+        public TeacherPageViewModel(ApplicationStore applicationStore, TeacherStore teacherStore, TeacherControlViewModel teacherControlViewModel)
         {
             this.teachersRepo = new Teachers(applicationStore);
             this.displayedTeachers = new ObservableCollection<Teacher>(teachersRepo.AllTeachers);
             this.applicationStore = applicationStore;
 
-            teacherControlViewModels = new TeacherControlViewModel();
+            this.teacherControlViewModel = teacherControlViewModel;
             selectedTeacher = new Teacher();
+
+            this.teacherStore = teacherStore;
+            teacherStore.TeacherDeleteEvent += TeacherStore_TeacherDeleteEvent; 
+        }
+
+        private void TeacherStore_TeacherDeleteEvent(string id)
+        {
+            Teacher techerToDelete = teachersRepo.FindTeacher(id);
+            if (techerToDelete != null)
+            {
+                DisplayedTeachers.Remove(techerToDelete);
+                teachersRepo.Delete(id);
+                OnPropertyChanged("DisplayedTeachers");
+            }
         }
 
         public ObservableCollection<Teacher> DisplayedTeachers

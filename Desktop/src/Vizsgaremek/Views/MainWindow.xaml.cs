@@ -34,19 +34,23 @@ namespace Vizsgaremek
         private DatabaseSourceViewModel databaseSourceViewModel;
         private LanguageSelectionViewModel languageSelectionViewModel;
         private TeacherPageViewModel teacherPageViewModel;
+        private TeacherControlViewModel teacherControlViewModel;
 
         private ApplicationStore applicationStore;
+        private TeacherStore teacherStore;
 
         public MainWindow()
         {
             applicationStore = new ApplicationStore();
+            teacherStore = new TeacherStore();
             Navigation.mainWindow = this;
 
             // Különböző ablakok adatai
             mainWindowViewModel = new MainWindowViewModel();
             databaseSourceViewModel = new DatabaseSourceViewModel();
             languageSelectionViewModel = new LanguageSelectionViewModel();
-            teacherPageViewModel = new TeacherPageViewModel(applicationStore);
+            teacherControlViewModel = new TeacherControlViewModel(teacherStore);
+            teacherPageViewModel = new TeacherPageViewModel(applicationStore,teacherStore, teacherControlViewModel);
             mainWindowViewModel.SelectedSource = databaseSourceViewModel.SelectedDatabaseSource.Name;
             applicationStore.DbSource = databaseSourceViewModel.DbSource;
 
