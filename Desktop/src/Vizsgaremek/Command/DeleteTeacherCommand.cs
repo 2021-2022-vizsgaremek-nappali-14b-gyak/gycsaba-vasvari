@@ -15,5 +15,11 @@ namespace Vizsgaremek.Command
         private readonly TeacherControlViewModel teacherControlViewModel;
         // Ebben a Store-ban valósítjuk meg a törlést
         private readonly TeacherStore teacherStore;
+
+        public DeleteTeacherCommand(TeacherControlViewModel teacherControlViewModel, TeacherStore teacherStore)
+        {
+            this.teacherControlViewModel = teacherControlViewModel;
+            this.teacherStore = teacherStore;
+        }
     }
 }
