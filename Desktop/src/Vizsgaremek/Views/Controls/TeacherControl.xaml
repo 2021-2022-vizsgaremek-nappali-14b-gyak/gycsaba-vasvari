@@ -85,7 +85,7 @@
                 <TextBlock Grid.Row="5" Grid.Column="0" x:Name="tbTeacherEmploeymentName">Foglalkoztatás:</TextBlock>
             </Grid>
             <StackPanel x:Name="spButtons" Orientation="Horizontal" >
-                <Button x:Name="btDeleteTeacher" Margin="10 5 5 10" Padding="10 2 10 2">
+                <Button x:Name="btDeleteTeacher" Margin="10 5 5 10" Padding="10 2 10 2" Command="{Binding Path=DeleteTeacherCommand}">
                     Törlés
                 </Button>
                 <Button Margin="10 5 5 10" Padding="10 2 10 2">
