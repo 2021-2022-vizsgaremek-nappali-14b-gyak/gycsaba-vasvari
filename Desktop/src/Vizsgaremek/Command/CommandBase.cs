@@ -13,14 +13,9 @@ namespace Vizsgaremek.Commands
     {
         public event EventHandler CanExecuteChanged;
 
-        public bool CanExecute(object parameter)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract bool CanExecute(object parameter);
 
-        public void Execute(object parameter)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void Execute(object parameter);
+        
     }
 }
