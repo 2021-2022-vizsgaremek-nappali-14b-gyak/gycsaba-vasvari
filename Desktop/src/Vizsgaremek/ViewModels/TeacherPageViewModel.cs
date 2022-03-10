@@ -61,9 +61,12 @@ namespace Vizsgaremek.ViewModels
             teacherStore.TeacherDeleteEvent += TeacherStore_TeacherDeleteEvent;
             teacherStore.TeacherModifyEvent += TeacherStore_TeacherModifyEvent;
         }
-        private void TeacherStore_TeacherModifyEvent(Teacher obj)
+        private void TeacherStore_TeacherModifyEvent(Teacher modifydTeacher)
         {
-            throw new NotImplementedException();
+            string teacherId = modifydTeacher.Id;
+            if (teachersRepo.IsTeacherExsist(teacherId))
+            {
+            }
         }
 
         private void TeacherStore_TeacherDeleteEvent(string id)
