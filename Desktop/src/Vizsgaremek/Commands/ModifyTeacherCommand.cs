@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Vizsgaremek.ViewModels;
 using Vizsgaremek.Stores;
 
+using Vizsgaremek.Models;
+
 namespace Vizsgaremek.Commands
 {
     class ModifyTeacherCommand : CommandBase
@@ -27,7 +29,15 @@ namespace Vizsgaremek.Commands
 
         public override void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            Teacher modifyTeacher = new Teacher()
+            {
+                Id = teacherControlViewModel.EditedTeacher.Id,
+                FirstName = teacherControlViewModel.EditedTeacher.FirstName,
+                LastName = teacherControlViewModel.EditedTeacher.LastName,
+                Meal = teacherControlViewModel.EditedTeacher.Meal,
+                Emploeyment = teacherControlViewModel.EditedTeacher.Emploeyment,
+                Password = teacherControlViewModel.EditedTeacher.Password
+            };
         }
     }
 }
