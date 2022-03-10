@@ -48,6 +48,22 @@ namespace Vizsgaremek.ViewModels
             }
         }
 
+        public int SelectedTeacherIndex
+        {
+            get
+            {
+                if (displayedTeachers != null && teachersRepo!=null && displayedTeachers.Count > 0)
+                {
+                    Teacher teacher = teachersRepo.FindTeacher(SelectedTeacher.Id);
+                    int index = displayedTeachers.IndexOf(teacher);
+                    return index;
+
+                }
+                else
+                    return -1;
+            }
+        }
+
         public TeacherPageViewModel(ApplicationStore applicationStore, TeacherStore teacherStore, TeacherControlViewModel teacherControlViewModel)
         {
             this.teachersRepo = new Teachers(applicationStore);
