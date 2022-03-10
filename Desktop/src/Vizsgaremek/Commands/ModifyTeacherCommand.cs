@@ -38,6 +38,7 @@ namespace Vizsgaremek.Commands
                 Emploeyment = teacherControlViewModel.EditedTeacher.Emploeyment,
                 Password = teacherControlViewModel.EditedTeacher.Password
             };
+            teacherStore.ModifyTeacher(modifyTeacher);
         }
     }
 }
