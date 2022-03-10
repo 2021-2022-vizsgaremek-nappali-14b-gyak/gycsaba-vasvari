@@ -63,6 +63,7 @@ namespace Vizsgaremek.Repositories
             switch (applicationStore.DbSource)
             {
                 case DbSource.NONE:
+                    UpdateTeacherInTestData(id, entity);
                     break;
                 case DbSource.LOCALHOST:
                     break;
