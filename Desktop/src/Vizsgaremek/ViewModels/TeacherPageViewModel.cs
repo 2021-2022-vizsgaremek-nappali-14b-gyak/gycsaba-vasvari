@@ -67,6 +67,8 @@ namespace Vizsgaremek.ViewModels
             if (teachersRepo.IsTeacherExsist(teacherId))
             {
                 teachersRepo.Update(teacherId, modifydTeacher);
+                DisplayedTeachers.Clear();
+                DisplayedTeachers = new ObservableCollection<Teacher>(teachersRepo.AllTeachers);
             }
         }
 
