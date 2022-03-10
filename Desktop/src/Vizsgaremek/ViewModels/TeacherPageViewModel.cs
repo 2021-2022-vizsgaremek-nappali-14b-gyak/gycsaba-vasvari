@@ -43,7 +43,8 @@ namespace Vizsgaremek.ViewModels
                 if (selectedTeacherInDataGrid != null)
                 {
                     selectedTeacher = value;
-
+                    OnPropertyChanged("SelectedTeacher");
+                    OnPropertyChanged("SelectedTeacherIndex");
                 }
             }
         }
