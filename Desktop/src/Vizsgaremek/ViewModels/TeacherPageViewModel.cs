@@ -43,8 +43,25 @@ namespace Vizsgaremek.ViewModels
                 if (selectedTeacherInDataGrid != null)
                 {
                     selectedTeacher = value;
+                    OnPropertyChanged("SelectedTeacher");
+                    OnPropertyChanged("SelectedTeacherIndex");
+                }
+            }
+        }
+
+        public int SelectedTeacherIndex
+        {
+            get
+            {
+                if (displayedTeachers != null && teachersRepo!=null && displayedTeachers.Count > 0)
+                {
+                    Teacher teacher = teachersRepo.FindTeacher(SelectedTeacher.Id);
+                    int index = displayedTeachers.IndexOf(teacher);
+                    return index;
 
                 }
+                else
+                    return -1;
             }
         }
 
@@ -58,7 +75,19 @@ namespace Vizsgaremek.ViewModels
             selectedTeacher = new Teacher();
 
             this.teacherStore = teacherStore;
-            teacherStore.TeacherDeleteEvent += TeacherStore_TeacherDeleteEvent; 
+            teacherStore.TeacherDeleteEvent += TeacherStore_TeacherDeleteEvent;
+            teacherStore.TeacherModifyEvent += TeacherStore_TeacherModifyEvent;
+        }
+        private void TeacherStore_TeacherModifyEvent(Teacher modifydTeacher)
+        {
+            string teacherId = modifydTeacher.Id;
+            if (teachersRepo.IsTeacherExsist(teacherId))
+            {
+                teachersRepo.Update(teacherId, modifydTeacher);
+                DisplayedTeachers.Clear();
+                DisplayedTeachers = new ObservableCollection<Teacher>(teachersRepo.AllTeachers);
+                SelectedTeacher = modifydTeacher;
+            }
         }
 
         private void TeacherStore_TeacherDeleteEvent(string id)
@@ -79,6 +108,11 @@ namespace Vizsgaremek.ViewModels
                 displayedTeachers.Clear();
                 displayedTeachers = new ObservableCollection<Teacher>(teachersRepo.AllTeachers);
                 return displayedTeachers;
+            }
+            set
+            {
+                displayedTeachers = value;
+                OnPropertyChanged("DisplayedTeachers");
             }
         }
 

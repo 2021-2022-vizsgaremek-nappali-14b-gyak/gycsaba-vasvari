@@ -21,7 +21,8 @@
                            SelectionChanged="dgTeachers_SelectionChanged"
                            ItemsSource="{Binding DisplayedTeachers}"
                            SelectedValue="{Binding SelectedTeacher}"
-                           SelectedItem="{Binding SelectedTeacher}"                              
+                           SelectedItem="{Binding SelectedTeacher}"    
+                           SelectedIndex="{Binding SelectedTeacherIndex, Mode=OneWay}"
                            >
                     <DataGrid.Columns>
                         <DataGridTextColumn x:Name="teacherID" MinWidth="100" IsReadOnly="True" Header="Azonosító" Binding="{Binding Id}"></DataGridTextColumn>

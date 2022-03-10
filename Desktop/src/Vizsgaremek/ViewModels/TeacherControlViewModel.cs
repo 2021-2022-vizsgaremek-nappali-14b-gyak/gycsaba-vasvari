@@ -18,6 +18,7 @@ namespace Vizsgaremek.ViewModels
         private Teacher editedTeacher;
 
         public ICommand DeleteTeacherCommand { get; }
+        public ICommand ModifyTeacherCommand { get; }
         public Teacher EditedTeacher
         {
             get
@@ -37,6 +38,7 @@ namespace Vizsgaremek.ViewModels
             this.teacherStore = teacherStore;
 
             DeleteTeacherCommand = new DeleteTeacherCommand(this, teacherStore);
+            ModifyTeacherCommand = new ModifyTeacherCommand(this, teacherStore);
         }
     }
 }

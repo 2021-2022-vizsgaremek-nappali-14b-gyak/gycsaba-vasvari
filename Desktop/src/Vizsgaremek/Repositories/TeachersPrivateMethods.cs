@@ -48,5 +48,14 @@ namespace Vizsgaremek.Repositories
                 teachers.Remove(techerToDelete);
             }
         }
+
+        private void UpdateTeacherInTestData(string id, Teacher modifydTeacher)
+        {
+            Teacher teacherToUpdate = teachers.Find(teacher => teacher.Id == id);
+            if (teacherToUpdate != null)
+            {
+                teacherToUpdate.SetTo(modifydTeacher);
+            }
+        }
     }
 }

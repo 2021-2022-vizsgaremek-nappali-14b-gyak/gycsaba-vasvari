@@ -23,5 +23,13 @@ namespace Vizsgaremek.Repositories
             }
             return null;
         }
+
+        public bool IsTeacherExsist(string id)
+        {
+            if (FindTeacher(id) != null)
+                return true;
+            else
+                return false;
+        }
     }
 }
