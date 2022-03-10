@@ -66,7 +66,7 @@ namespace Vizsgaremek.ViewModels
             string teacherId = modifydTeacher.Id;
             if (teachersRepo.IsTeacherExsist(teacherId))
             {
-                teachersRepo.UpdateTeacher(teacherId, modifydTeacher);
+                teachersRepo.Update(teacherId, modifydTeacher);
             }
         }
 
