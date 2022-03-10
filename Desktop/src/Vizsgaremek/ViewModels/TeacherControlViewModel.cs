@@ -18,6 +18,7 @@ namespace Vizsgaremek.ViewModels
         private Teacher editedTeacher;
 
         public ICommand DeleteTeacherCommand { get; }
+        public ICommand ModifyTeacherCommand { get; }
         public Teacher EditedTeacher
         {
             get
