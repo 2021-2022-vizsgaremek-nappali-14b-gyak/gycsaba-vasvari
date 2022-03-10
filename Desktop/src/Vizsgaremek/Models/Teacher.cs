@@ -82,5 +82,15 @@ namespace Vizsgaremek.Models
                     emploeyment = EmploymentValue.DONEONCOMMISSION;
             }
         }
+
+        public void SetTo(Teacher teacher)
+        {
+            this.id = teacher.id;
+            this.firstName = teacher.firstName;
+            this.lastName = teacher.lastName;
+            this.meal = teacher.meal;
+            this.password = teacher.password;
+            this.emploeyment = teacher.emploeyment;
+        }
     }
 }
