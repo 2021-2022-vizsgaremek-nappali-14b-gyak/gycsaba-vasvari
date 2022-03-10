@@ -85,6 +85,7 @@ namespace Vizsgaremek.ViewModels
                 teachersRepo.Update(teacherId, modifydTeacher);
                 DisplayedTeachers.Clear();
                 DisplayedTeachers = new ObservableCollection<Teacher>(teachersRepo.AllTeachers);
+                SelectedTeacher = modifydTeacher;
             }
         }
 
