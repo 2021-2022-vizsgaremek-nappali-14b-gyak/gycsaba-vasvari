@@ -38,6 +38,7 @@ namespace Vizsgaremek.ViewModels
             this.teacherStore = teacherStore;
 
             DeleteTeacherCommand = new DeleteTeacherCommand(this, teacherStore);
+            ModifyTeacherCommand = new ModifyTeacherCommand(this, teacherStore);
         }
     }
 }
