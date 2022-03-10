@@ -13,6 +13,13 @@ namespace Vizsgaremek.Commands
     {
         private readonly TeacherControlViewModel teacherControlViewModel;
         private readonly TeacherStore teacherStore;
+
+        public ModifyTeacherCommand(TeacherControlViewModel teacherControlViewModel, TeacherStore teacherStore)
+        {
+            this.teacherControlViewModel = teacherControlViewModel;
+            this.teacherStore = teacherStore;
+        }
+
         public override bool CanExecute(object parameter)
         {
             return true;
