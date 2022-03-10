@@ -58,7 +58,12 @@ namespace Vizsgaremek.ViewModels
             selectedTeacher = new Teacher();
 
             this.teacherStore = teacherStore;
-            teacherStore.TeacherDeleteEvent += TeacherStore_TeacherDeleteEvent; 
+            teacherStore.TeacherDeleteEvent += TeacherStore_TeacherDeleteEvent;
+            teacherStore.TeacherModifyEvent += TeacherStore_TeacherModifyEvent;
+        }
+        private void TeacherStore_TeacherModifyEvent(Teacher obj)
+        {
+            throw new NotImplementedException();
         }
 
         private void TeacherStore_TeacherDeleteEvent(string id)
