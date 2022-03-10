@@ -91,6 +91,11 @@ namespace Vizsgaremek.ViewModels
                 displayedTeachers = new ObservableCollection<Teacher>(teachersRepo.AllTeachers);
                 return displayedTeachers;
             }
+            set
+            {
+                displayedTeachers = value;
+                OnPropertyChanged("DisplayedTeachers");
+            }
         }
 
     }
