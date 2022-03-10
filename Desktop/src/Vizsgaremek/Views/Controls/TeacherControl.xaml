@@ -88,7 +88,7 @@
                 <Button x:Name="btDeleteTeacher" Margin="10 5 5 10" Padding="10 2 10 2" Command="{Binding Path=DeleteTeacherCommand}">
                     Törlés
                 </Button>
-                <Button Margin="10 5 5 10" Padding="10 2 10 2">
+                <Button Margin="10 5 5 10" Padding="10 2 10 2" Command="{Binding Path=ModifyTeacherCommand}">
                     Módosítás
                 </Button>
                 <Button x:Name="btInsertTeacher" Margin="10 5 5 10" Padding="10 2 10 2">
